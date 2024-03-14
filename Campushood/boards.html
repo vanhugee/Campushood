@@ -15,8 +15,6 @@
 
   <div class="container text-center">
     <div class="row">
-      <div class="col align-self-end">
-      </div>
       <div class="col-8 align-self-center">
         <br><br>
         <div class="header">
@@ -24,16 +22,12 @@
             <img src="assets/img/logo.png" style="position: relative ;display:inline;" alt="title" width="180">
           </a><br><br>
           <div class="header-menu" style="display:inline;">
-           <!--  <a href="#" style="margin: 15px;">Account</a>
-            <a href="#" style="margin: 15px;">Sessions</a>
-            <a href="#" style="margin: 15px;">Leaderboard</a>
-            <a href="#" style="margin: 15px;">About</a> -->
+
 
           </div>
         </div>
         <div class="intro-box">
-          <h3></h3><br><br>
-          <h5 style="font-style:italic;"></h5><br>
+      
           <form>
             <!--<button id="start-button" type="button" class="btn btn-primary"
               style="background-color: #FFFCB6; color: black;font-family: 'Georama'; --bs-btn-padding-y: 15px; --bs-btn-padding-x: 65px; --bs-btn-font-size: 20px;border-radius: 20px;">START</button>-->
@@ -42,26 +36,46 @@
         </div><br>
         <div id="info" class="info-box">
           <div id="info-section">
-            <h5>Connect with your campus community and find or share resources</h5>
+            
                 
             <br>
-            <p><a href="#" style="font-family: 'Inter';font-style: normal;
-font-weight: 400;line-height: 129.52%;
-
-text-decoration-line: underline;
-
-color: #D9D9D9;">Read more </a>about Campushood and our goal</p>
-<br><br><div class="btn" style="background: #A61A5D;color: white;width:200px;border-radius: 17px;">
-  Sign In
-</div> <div class="btn" style="background: #A61A5A;color: white;width:200px;border-radius: 17px;">
-  Register
-</div>
+            <div class="tab">
+              <button class="tablinks" onclick="openChat(event, 'food')" id="defaultOpen">Food</button>
+              <button class="tablinks" onclick="openChat(event, 'transportation')">Transportation</button>
+              <button class="tablinks" onclick="openChat(event, 'more')">More</button>
+          </div>
+          
+          <div id="food" class="chat-container active">
+              <h2>Food Chat</h2>
+              <div class="post-container">
+                  <input type="text" id="food-input" placeholder="Write your post...">
+                  <button onclick="sendPost('food')">Post</button>
+              </div>
+              <div id="food-messages"></div>
+          </div>
+          
+          <div id="transportation" class="chat-container">
+              <h2>Transportation Chat</h2>
+              <div class="post-container">
+                  <input type="text" id="transportation-input" placeholder="Write your post...">
+                  <button onclick="sendPost('transportation')">Post</button>
+              </div>
+              <div id="transportation-messages"></div>
+          </div>
+          
+          <div id="more" class="chat-container">
+              <h2>More Chat</h2>
+              <div class="post-container">
+                  <input type="text" id="more-input" placeholder="Write your post...">
+                  <button onclick="sendPost('more')">Post</button>
+              </div>
+              <div id="more-messages"></div>
+          </div>
+          
+        
           </div>
 
         </div>
-
-      </div>
-      <div class="col align-self-end">
 
       </div>
     </div>
