@@ -73,6 +73,7 @@ $(".clickme").click(function(e){
 
 })
  */
+// Load posts from local storage
 window.addEventListener('load', function() {
   var topics = ['food', 'transportation', 'more'];
   topics.forEach(function(topic) {
@@ -149,6 +150,20 @@ function createReplyElement(padding, container, reply) {
           createReplyElement(padding, newReply, { message: replyInput.value }); //New Reply is the container
   };
   
+}
+
+function openPage(evt, pageName) {
+  var i, pages, navLinks;
+  pages = document.getElementsByClassName("chat-container");
+  for (i = 0; i < pages.length; i++) {
+      pages[i].style.display = "none";
+  }
+  navLinks = document.getElementsByClassName("navbar")[0].getElementsByTagName("a");
+  for (i = 0; i < navLinks.length; i++) {
+      navLinks[i].classList.remove("active");
+  }
+  document.getElementById(pageName).style.display = "block";
+  evt.currentTarget.classList.add("active");
 }
 
 function openPage(evt, pageName) {
