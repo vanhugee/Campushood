@@ -73,6 +73,7 @@ $(".clickme").click(function(e){
 
 })
  */
+// Load posts from local storage
 window.addEventListener('load', function() {
   var topics = ['food', 'transportation', 'more'];
   topics.forEach(function(topic) {
@@ -122,18 +123,32 @@ function createPostElement(container, post) {
   }, 10000);
 }
 
+function openPage(evt, pageName) {
+  var i, pages, navLinks;
+  pages = document.getElementsByClassName("chat-container");
+  for (i = 0; i < pages.length; i++) {
+      pages[i].style.display = "none";
+  }
+  navLinks = document.getElementsByClassName("navbar")[0].getElementsByTagName("a");
+  for (i = 0; i < navLinks.length; i++) {
+      navLinks[i].classList.remove("active");
+  }
+  document.getElementById(pageName).style.display = "block";
+  evt.currentTarget.classList.add("active");
+}
+
 function openChat(evt, chatName) {
-  var i, chatContainer, tablinks;
-  chatContainer = document.getElementsByClassName("chat-container");
-  for (i = 0; i < chatContainer.length; i++) {
-      chatContainer[i].style.display = "none";
+  var i, tabContent, tablinks;
+  tabContent = document.getElementsByClassName("innerchat-container");
+  for (i = 0; i < tabContent.length; i++) {
+      tabContent[i].style.display = "none";
   }
   tablinks = document.getElementsByClassName("tablinks");
   for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
+      tablinks[i].classList.remove("active");
   }
   document.getElementById(chatName).style.display = "block";
-  evt.currentTarget.className += " active";
+  evt.currentTarget.classList.add("active");
 }
 
 function sendPost(chatName) {
@@ -149,4 +164,4 @@ function sendPost(chatName) {
   inputElement.value = '';
 }
 
-document.getElementById("defaultOpen").click();
+document.getElementsByClassName("navbar")[0].getElementsByTagName("a")[0].click(); // Open Home page by default
