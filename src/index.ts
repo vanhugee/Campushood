@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import { createUser } from './controllers/User';
+import { createPost } from './controllers/Post';
 import { start } from 'repl';
 
 // Set up the express app
@@ -10,6 +11,7 @@ app.use(cors());
 
 // Set up routes
 app.use('/user', createUser);
+app.use('/post', createPost);
 
 const PORT = process.env.PORT || 5000;
 const startServer = async () => {

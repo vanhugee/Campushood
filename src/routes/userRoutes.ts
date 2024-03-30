@@ -1,7 +1,7 @@
 import express from 'express';
-const userRouter = express.Router();
 import { createUser } from '../controllers/User';
 
+const userRouter = express.Router();
 userRouter.post('/create', createUser);
 
 export default userRouter;
