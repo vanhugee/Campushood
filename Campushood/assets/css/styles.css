@@ -210,3 +210,38 @@ largeText {
   border-left: 1px dashed #ccc ;
 }
 /* css */
+
+
+.post {
+  width: 80%;
+  max-width: 600px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.post-image {
+  width: 100%;
+  height: auto;
+}
+
+.post-caption {
+  padding: 15px;
+}
+
+.post-actions {
+  background-color: #f0f0f0;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn {
+  padding: 8px 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+}

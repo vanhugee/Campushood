@@ -1,13 +1,14 @@
 {
-  "name": "campushood",
+  "name": "1",
   "version": "1.0.0",
   "description": "Group # 3         Group Members:       -Awais Abid, Product Manager     -Blake Craig, Scrum Master (alternating)     -Huy Nguyen, Developer     -Paul Skok, Developer",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "a",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^20.11.30",
@@ -17,9 +18,12 @@
   },
   "dependencies": {
     "@prisma/client": "^5.11.0",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.0",
+    "socket.io": "^4.7.5"
   }
 }

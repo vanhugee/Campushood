@@ -1,78 +1,4 @@
-/* var timeStart, timeEnd;
-var timeTaken;
-var timeDiff;
-var timeIndicator;
-var isStart = false;
-window.scrollTo({
-  left: 0
-});
-console.log("start....");
 
-
-function recordTime() {
-
-  if (!isStart) {
-    timeStart = performance.now();
-    document.getElementById("start-button").innerHTML = "STOP";
-    document.getElementById("start-button").style.background = "#FFDFCD";
-    isStart = true;
-  } else {
-
-    timeEnd = performance.now();
-    document.getElementById("start-button").innerHTML = "RESTART";
-    document.getElementById("start-button").style.background = "#FFFCB6";
-
-
-    timeTaken = ((timeEnd - timeStart) / 1000).toFixed(2);
-    isStart = false;
-    document.getElementById("info").style.display = "block";
-
-    displayInfo();
-  }
-
-  function displayInfo() {
-    timeDiff = timeTaken - 5;
-    if (timeDiff > 0) {
-      timeIndicator = "slower";
-    } else if (timeDiff < 0) {
-      timeIndicator = "faster";
-    } else {
-      timeIndicator = "PERFECT and differs";
-    }
-
-
-    document.getElementById("info-section").innerHTML = "It took you <pinkText>" + Math.abs(timeTaken) + "  seconds </pinkText> to count to 5. <br><br> Your perception of time is " + timeIndicator + " by " + (Math.abs(timeDiff)).toFixed(3) + " seconds <br><br> <middleText>This means....<br>1 minute feels like " + (timeTaken / 5).toFixed(2) + " minutes <br>1 month feels like " + (((timeTaken / 5) * 2628288) / 86400).toFixed(1) + " days <br> 1 year feels like " + (((timeTaken / 5) * 31536000) / 2628288).toFixed(0) + " months, and</middleText> <br> <largeText>50  years feel like  " + (((timeTaken / 5) * 50)).toFixed(0) + " years to you</largeText><br><br>";
-  }
-
-  function validateForm(e) {
-
-    let timeInput = document.forms["timeCalculate"]["formInput"].value;
-
-    timeTaken = timeInput;
-    displayInfo();
-    console.log("Math formula used for calculating relative time:");
-    console.log("((timeTaken / 5) * secondsInTotalTimePeriod) / secondsInUnitTimePeriod");
-
-    e.preventDefault();
-
-  }
-
-  const form = document.getElementById('timeForm');
-
-  form.addEventListener('input', validateForm);
-  form.addEventListener('submit', validateForm);
-
-
-
-}
-
-/* javascript */
-/*
-$(".clickme").click(function(){console.log("t6547");});
-$(".clickme").click(function(e){
-
-})
- */
 window.addEventListener('load', function() {
   var topics = ['food', 'transportation', 'more'];
   topics.forEach(function(topic) {
@@ -83,20 +9,15 @@ window.addEventListener('load', function() {
               createPostElement(messageContainer, post);
               
           });
-      }
-      
+      }      
   });
-  
 });
 
 function createPostElement(container, post) {
-
-
-
   var newPost = document.createElement('div');
   newPost.classList.add('post');
   var username = "username"; // You can replace "User" with the actual username
-  newPost.innerHTML = '<strong>' + username + '</strong>: ' + post.message;
+  newPost.innerHTML = '<div class="post"><p class="post-caption">Here is a sample caption for this beautiful image.</p><div class="post-actions"><button class="btn" onclick="sharePost()">Share</button><button class="btn" onclick="editPost()">Edit</button><button class="btn" onclick="deletePost()">Delete</button></div></div>';
   var replyInput = document.createElement('input');
   replyInput.type = 'text';
   replyInput.placeholder = 'Reply to this post...';
@@ -110,8 +31,7 @@ function createPostElement(container, post) {
   
   newPost.appendChild(replyInput);
   newPost.appendChild(replyButton);
-
-  
+ 
   container.appendChild(newPost);
   // Automatically delete post after 10 seconds
   setTimeout(function() {
@@ -192,5 +112,30 @@ function sendPost(chatName) {
   inputElement.value = '';
   
 }
+
+function sharePost() {
+  // In a real application, you would share the post via an API
+  alert("Post shared!");
+}
+
+function editPost() {
+  // Here, you would typically open a modal or form to edit the post
+  var newCaption = prompt("Edit your caption:");
+  if (newCaption) {
+      document.querySelector(".post-caption").textContent = newCaption;
+      // Send new caption to the server
+  }
+}
+
+function deletePost() {
+  // Confirm deletion
+  if (confirm("Are you sure you want to delete this post?")) {
+      // Remove the post element from the document
+      document.querySelector(".post").remove();
+      // In a real application, send a request to delete the post from the database
+  }
+}
+
+
 
 document.getElementsByClassName("navbar")[0].getElementsByTagName("a")[0].click(); // Open Home page by default
