@@ -23,20 +23,7 @@ const createUser = async (req: Request, res: Response) => {
     }
 };
 
-// Get info of an user
-// const getUserInfo = async (req: Request, res: Response) => {
-//     try {
-//         const users = await prisma.user.findMany();
-//         res.status(200).json({data: users});
-//     } catch (error) {
-//         if (error instanceof Error) {
-//             res.status(400).json({ error: error.message })
-//         } 
-//         else {
-//             res.status(400).json({ error: "An unknown error occurred" })
-//         };
-//     }
-// }
+
 
 
 export {createUser};
