@@ -1,5 +1,9 @@
+import React from 'react';
+import { LoginForm } from '../components/LogIn'
+
+
 export function Home() {
     return (
-        <h1>HomePage</h1>
+        <LoginForm />
     )
 }

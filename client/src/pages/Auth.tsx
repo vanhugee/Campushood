@@ -1,5 +1,5 @@
-export function Auth() {
+export function DashBoard() {
     return (
-        <h1>AuthPage</h1>
+        <h1>DashBoardPage</h1>
     )
 }
