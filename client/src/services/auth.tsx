@@ -18,7 +18,7 @@ export const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
 export const signInWithGoogle = async () => {
-    signInWithPopup(auth, provider).then((result) => {
+    await signInWithPopup(auth, provider).then((result) => {
       console.log("User signed in successfully", result);
     }).catch((error) => {
       console.log("Error occurred: ", error);

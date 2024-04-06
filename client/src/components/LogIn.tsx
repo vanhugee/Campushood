@@ -1,11 +1,18 @@
-// LoginForm.js
 import React, { useState } from 'react';
+import { DashBoard } from '../pages/Auth';
+import { useNavigate } from 'react-router-dom';
+import { signInWithGoogle } from '../services/auth';
 
 export function LoginForm() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const handleLogin = () => {
-    // Perform authentication logic here
-    setIsLoggedIn(true);
+  const navigate = useNavigate();
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const handleLogin = async () => {
+    signInWithGoogle().then((result) => {
+      navigate('/auth');
+    }).catch((error) => {
+      console.log("Error occurred: ", error);
+    });
+
   };
   return (
     <div>
