@@ -1,5 +1,3 @@
-import React, { useState } from 'react';
-import { DashBoard } from '../pages/Auth';
 import { useNavigate } from 'react-router-dom';
 import { signInWithGoogle } from '../services/auth';
 
@@ -9,6 +7,7 @@ export function LoginForm() {
   const handleLogin = async () => {
     signInWithGoogle().then((result) => {
       navigate('/auth');
+      console.log()
     }).catch((error) => {
       console.log("Error occurred: ", error);
     });
