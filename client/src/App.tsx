@@ -1,7 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Home } from './pages/Home';
-import { DashBoard } from './pages/DashBoard';
+import { FoodPage } from './pages/Food';
+import { MiscPage } from './pages/Misc';
+import { TranspoPage } from './pages/Transpo';
 import './App.css';
 
 function App() {
@@ -9,7 +11,9 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={ <Home /> } />
-        <Route path="/auth" element={ <DashBoard /> } />
+        <Route path="/food" element={ <FoodPage /> } />
+        <Route path="/transpo" element={ <TranspoPage /> } />
+        <Route path="/misc" element={ <MiscPage /> } />
       </Routes>    
     </BrowserRouter>
   );

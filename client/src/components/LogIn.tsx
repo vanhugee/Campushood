@@ -5,7 +5,7 @@ export function LoginForm() {
   const navigate = useNavigate();
   const handleLogin = async () => {
     signInWithGoogle().then((result) => {
-      navigate('/auth');
+      navigate('/food');
     }).catch((error) => {
       console.log("Error occurred: ", error);
     });

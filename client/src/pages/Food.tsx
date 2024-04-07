@@ -3,7 +3,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 
 
-export function DashBoard() {
+export function FoodPage() {
     const [authenticated, setAuthenticated] = useState(false);
     useEffect(() => {
         const auth = getAuth();
