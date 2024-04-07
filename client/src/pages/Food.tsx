@@ -20,7 +20,7 @@ export function FoodPage() {
         )
     } 
     return (
-        <h1>DashBoardPage</h1>
+        <h1>Food Page</h1>
     )
     
 }

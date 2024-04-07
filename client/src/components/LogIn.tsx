@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { signInWithGoogle } from '../services/auth';
 
-export function LoginForm() {
+export function LoginButton() {
   const navigate = useNavigate();
   const handleLogin = async () => {
     signInWithGoogle().then((result) => {

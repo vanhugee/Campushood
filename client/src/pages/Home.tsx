@@ -1,9 +1,9 @@
 import React from 'react';
-import { LoginForm } from '../components/LogIn'
+import { LoginButton } from '../components/LogIn'
 
 
 export function Home() {
     return (
-        <LoginForm />
+        <LoginButton />
     )
 }
