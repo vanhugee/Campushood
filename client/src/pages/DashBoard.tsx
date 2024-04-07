@@ -18,9 +18,9 @@ export function DashBoard() {
         return (
             <h1>Not Authenticated</h1>
         )
-    } else {
-        return (
-            <h1>DashBoardPage</h1>
-        )
-    }
+    } 
+    return (
+        <h1>DashBoardPage</h1>
+    )
+    
 }
