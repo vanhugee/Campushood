@@ -9,12 +9,14 @@ export function FoodPage() {
         const auth = getAuth();
         onAuthStateChanged(auth, (user) => {
             if (user) {
-                console.log(user)
+                console.log(user);
                 setAuthenticated(true);
             }
         });
     }, []);
+    console.log(authenticated);
     if (!authenticated) {
+        console.log("Not Authenticated")
         return (
             <h1>Not Authenticated</h1>
         )
