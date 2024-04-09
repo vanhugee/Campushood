@@ -1,0 +1,150 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* Navbar.css */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #32003e;
+  color: #fff;
+  padding: 10px 20px;
+}
+
+.navbar-logo img {
+  height: 50px; /* Adjust based on your logo's size */
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-links li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar-links li a:hover {
+  color: #ddd;
+}
+
+.login-btn {
+  background-color: #700089;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color:  #430152;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .navbar-links {
+    margin-top: 10px;
+  }
+
+  .login-btn {
+    margin-top: 10px;
+  }
+}
+
+/* Sidebar.css */
+.sidebar {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #49005c;
+  color: #fff;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar-links {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar-links li a {
+  display: block;
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar-links li a:hover {
+  background-color: #700089;
+}
+
+.sidebar-toggle {
+  background-color: #333;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: -60px; /* Adjust based on the sidebar width to align the toggle button */
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    transform: translateX(0);
+  }
+
+  .sidebar-toggle {
+    display: none;
+  }
+}
