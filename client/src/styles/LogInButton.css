@@ -1,0 +1,29 @@
+/* Button styles */
+.logInButton {
+    display: flex;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Button hover effect */
+  .logInButton:hover {
+    background-color: #45a049;
+    cursor: pointer; /* Change the cursor to a pointer hand */
+  }
+  
+  /* Button click effect */
+  .logInButton:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  

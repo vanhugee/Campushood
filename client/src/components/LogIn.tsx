@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { signInWithGoogle } from '../services/auth';
+import '../styles/LogInButton.css';
 
 export function LoginButton() {
   const navigate = useNavigate();
@@ -13,8 +14,7 @@ export function LoginButton() {
   };
   return (
     <div>
-      <h1>Login</h1>
-      <button onClick={handleLogin}>Log In</button>
+      <button className="logInButton" onClick={handleLogin}>Sign in with Google</button>
     </div>
   );
 }
