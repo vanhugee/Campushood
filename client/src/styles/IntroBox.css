@@ -1,0 +1,33 @@
+.introBox {
+    width: 50%; /* Limit the size to half of the viewport */
+    margin: 0 auto; /* Center the box horizontally */
+    padding: 20px;
+    border: 2px solid #eae319; /* Bright border color (in this case, gold) */
+    border-radius: 10px; /* Rounded corners */
+    position: relative;
+    margin-top: 50px; /* Adjust as needed */
+    color: rgb(246, 247, 242); /* Text color set to white */
+  }
+  
+  .introBox::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border: 2px solid #FFD700; /* Bright border color (in this case, gold) */
+    border-radius: 12px; /* Rounded corners */
+    z-index: -1;
+  }
+  
+  .introBox > div {
+    margin-bottom: 20px;
+  }
+  
+  /* Style for the text inside the intro box */
+  .introBox div {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  

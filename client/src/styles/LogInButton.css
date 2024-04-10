@@ -7,17 +7,19 @@
     text-align: center;
     text-transform: uppercase;
     color: #fff;
-    background-color: #4CAF50;
+    background-color: #ad8dd0;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
+    bottom: 50px;
+    /* margin-bottom: 1rem; */
   }
   
   /* Button hover effect */
   .logInButton:hover {
-    background-color: #45a049;
+    background-color: #744cc0;
     cursor: pointer; /* Change the cursor to a pointer hand */
   }
   

@@ -1,23 +1,25 @@
 .homeWrapper {
-    color: rgb(7, 138, 238);
+    color: rgb(238, 239, 234);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.2rem;
     background-size: cover;
     background-position: center;
     min-height: 100vh;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
 }
 
 h1 {
-    font-size: 4rem;
+    font-size: 4.3rem;
     margin: 0;
     padding: 0;
 }
 
 h3 {
-    font-size: 2 rem;
+    font-size: 2.2rem;
     margin: 0;
     padding: 0;
 }
