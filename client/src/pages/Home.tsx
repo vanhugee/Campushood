@@ -7,7 +7,6 @@ import background from '../assets/davidson.jpg'
 
 
 export function Home() {
-    
     return (
         <div className='homeWrapper' style={{ backgroundImage: `url(${background})` }}>
             <h1>Welcome to CampusHood</h1>
