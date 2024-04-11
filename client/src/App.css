@@ -96,6 +96,7 @@
 
 /* Sidebar.css */
 .sidebar {
+  display: inline-block;
   position: relative;
   left: 0;
   top: 0;
@@ -147,4 +148,16 @@
   .sidebar-toggle {
     display: none;
   }
+}
+
+.postb{
+  display: inline-block;
+}
+.rankingsBox{
+  display: block;
+  background-color: #ffa2e1;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+
 }

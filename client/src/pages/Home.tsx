@@ -2,6 +2,7 @@ import React from 'react';
 
 import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar';
+import PostBoard from '../components/PostBoard';
 
 
 export function Home() {
@@ -10,8 +11,8 @@ export function Home() {
         <div>
             <Navbar/>
             <Sidebar/>
+            <PostBoard/>
           
-
         </div>
        
     )
