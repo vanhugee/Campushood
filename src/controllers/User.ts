@@ -6,12 +6,16 @@ import { Request, Response } from 'express';
 const createUser = async (req: Request, res: Response) => {
     try {
         const {email, name } = req.body;
-        const newUser = await prisma.user.create({
-            data: {
-                email: email,
-                name: name
+        const newUser = await prisma.user.upsert({
+            where: {
+              email: email,
             },
-        });
+            update: {},
+            create: {
+              email: email,
+              name: name
+            },
+          }) 
         res.status(201).json({message: "User created successfully", data: newUser});
     } catch (error) {
         if (error instanceof Error) {
