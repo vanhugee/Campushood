@@ -1,0 +1,15 @@
+.homeStyle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.userIconStyle {
+    position: absolute;
+    top: 5px;
+    right: -13px;
+    height: 10%;
+    width: 10%;
+};

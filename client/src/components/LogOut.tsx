@@ -4,6 +4,4 @@ export function LogoutButton() {
         <button>Logout</button>
         </div>
     );
-
-   
 }
