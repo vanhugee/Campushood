@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
 import { signInWithGoogle } from '../services/auth';
 import '../styles/LogInButton.css';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
@@ -28,7 +27,7 @@ export function LoginButton() {
           }
       });
       
-      navigate('/food');
+      navigate('/dashboard');
     }).catch((error) => {
       console.log("Error occurred: ", error);
     });
