@@ -1,5 +1,5 @@
+import Sidebar from '../components/Sidebar'
 import Navbar from '../components/Navbar'
-import Sidebar from '../components/Sidebar';
 import { PostButton } from '../components/PostButton'
 import { ChatPage } from '../components/ChatPage'
 import { UserPoints } from '../components/UserPoints'
