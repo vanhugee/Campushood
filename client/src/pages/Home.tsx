@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { NavBar } from '../components/NavBar'
+import Navbar from '../components/Navbar'
+import Sidebar from '../components/Sidebar';
 import { PostButton } from '../components/PostButton'
 import { ChatPage } from '../components/ChatPage'
 import { UserPoints } from '../components/UserPoints'
@@ -9,6 +9,8 @@ import '../styles/Home.css'
 export function Home() {
     return (
         <div className='homeStyle'>
+            <Navbar/>
+            <Sidebar/>
             <PostButton />
             <div className='userIconStyle'>
                 <UserPoints />
@@ -17,4 +19,4 @@ export function Home() {
 
         </div>
     );
-}
+}import React from 'react';
