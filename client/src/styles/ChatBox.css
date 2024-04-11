@@ -1,0 +1,26 @@
+.chatBoxStyle  {
+    width: 800px;
+    height: 200px;
+    background-color: purple;
+    border-radius: 8px;
+    padding: 40px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    
+};
+
+.headerStyle {
+    border-bottom: 2px solid white;
+    border-top: 2px solid white;
+    border-right: 2px solid white;
+    border-left: 2px solid white;
+    text-align: center;
+};
+
+.userInfoStyle {
+    vertical-align: bottom;
+    text-align: right;
+    font-size: 50%;
+}

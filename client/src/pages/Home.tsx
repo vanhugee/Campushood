@@ -1,5 +1,4 @@
 import React from 'react';
-import { LogoutButton } from '../components/LogOut'
 import { NavBar } from '../components/NavBar'
 import { UserIcon } from '../components/UserIcon'
 import { ChatPage } from '../components/ChatPage'
@@ -16,7 +15,7 @@ const homeStyle: React.CSSProperties = {
 
 const userIconStyle: React.CSSProperties = {
     position: 'absolute',
-    top: '50px', // Adjust the top position as needed
+    top: '5px', // Adjust the top position as needed
     right: '-1320px', // Adjust the right position as needed
     height: "100%",
     width: "100%",
@@ -32,7 +31,6 @@ export function Home() {
                 <UserPoints />
             </div>
             <ChatPage />
-            <LogoutButton />
         </div>
     );
 }
