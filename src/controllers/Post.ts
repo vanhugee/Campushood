@@ -62,6 +62,31 @@ const getPostReplies = async (req: Request, res: Response) => {
     }
 }
 
-export {createPost, 
+// Update a post
+const updatePost = async (req: Request, res: Response) => {
+    try {
+        const {postId, title, content} = req.body;
+        const updatedPost = await prisma.post.update({
+            where: {
+                id: postId
+            },
+            data: {
+                title: title,
+                content: content
+            }
+        });
+        res.status(201).json({message: "Post updated successfully", data: updatedPost});
+    } catch (error) {
+        if (error instanceof Error) {
+            res.status(400).json({ error: error.message });
+        } 
+        else {
+            res.status(400).json({ error: "An unknown error occurred" });
+        };
+    }
+}
+
+export { createPost, 
         getAllPosts,
-        getPostReplies};
+        getPostReplies,
+        updatePost };
