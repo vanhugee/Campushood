@@ -1,5 +1,6 @@
 import prisma from '../config/client';
 import { Request, Response } from 'express';
+import { formatTime } from '../utils/formatTime';
 
 // Create a new post
 const createPost = async (req: Request, res: Response) => {
@@ -31,7 +32,12 @@ const getAllPosts = async (req: Request, res: Response) => {
                 createdAt: 'desc'
             }
         });
-        res.status(200).json({message: "All posts fetched successfully", data: posts});
+        let timeArray = [];
+        for (let i = 0; i < posts.length; i++) {
+            let timeDiff = formatTime(posts[i].createdAt);
+            timeArray.push(timeDiff);
+        }
+        res.status(200).json({message: "All posts fetched successfully", data: {posts, timeArray}});
     } catch (error) {
         if (error instanceof Error) {
             res.status(400).json({ error: error.message });
