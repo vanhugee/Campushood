@@ -48,5 +48,30 @@ const getUser = async (req: Request, res: Response) => {
   }
 }
 
+// Update user points
+const updateUserPoints = async (req: Request, res: Response) => {
+  try {
+    const {email, points} = req.body;
+    const updatedUser = await prisma.user.update({
+      where: {
+        email: email,
+      },
+      data: {
+        points: {
+          increment: points,
+        },
+      },
+    });
+    res.status(201).json({message: "User points updated successfully", data: updatedUser});
+  } catch (error) {
+    if (error instanceof Error) {
+      res.status(400).json({ error: error.message })
+    } 
+    else {
+      res.status(400).json({ error: "An unknown error occurred" })
+    };
+  }
+}
 
-export {getUser, createUser};
+
+export {createUser, getUser, updateUserPoints};
