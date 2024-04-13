@@ -3,7 +3,6 @@ import cors from 'cors';
 import userRouter from './routes/userRoutes';
 import postRouter from './routes/postRoutes';
 import replyRouter from './routes/replyRoutes';
-import { start } from 'repl';
 import 'dotenv/config'
 
 // Set up the express app

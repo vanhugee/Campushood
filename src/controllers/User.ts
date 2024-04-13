@@ -27,5 +27,26 @@ const createUser = async (req: Request, res: Response) => {
     }
 };
 
+// Get info of a user
+const getUser = async (req: Request, res: Response) => {
+  try {
+    const email = req.body.email;
+    console.log(email);
+    const userInfo = await prisma.user.findUnique({
+    where: {
+      email: email,
+        },
+      });
+    res.status(201).json({message: "User info fetched successfully", data: userInfo});
+  } catch (error) {
+    if (error instanceof Error) {
+      res.status(400).json({ error: error.message })
+    } 
+    else {
+      res.status(400).json({ error: "An unknown error occurred" })
+    };
+  }
+}
 
-export {createUser};
+
+export {getUser, createUser};
