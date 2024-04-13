@@ -1,8 +1,5 @@
 .homeStyle {
     display: inline-block;
-    flex-direction: column;
-    /* align-items: center; */
-    /* justify-content: center; */
     position: relative;
 }
 
@@ -12,4 +9,9 @@
     right: -13px;
     height: 10%;
     width: 10%;
-};
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}

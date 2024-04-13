@@ -1,20 +1,32 @@
+// ChatBox.tsx
+
 import React, { useState } from 'react';
 import '../styles/ChatBox.css';
 import editImage from '../assets/edit.png';
 import replyImage from '../assets/reply.png';
 import deleteImage from '../assets/delete.png';
 
-export function ChatBox() {
+interface ChatBoxProps {
+    initialTitle: string;
+    initialBody: string;
+}
+
+export function ChatBox({ initialTitle, initialBody }: ChatBoxProps) {
     const [isEditing, setIsEditing] = useState(false);
-    const [message, setMessage] = useState("Im driving to the pickleball courts at 5:30pm today. I'll be at Rich Circle if anyone needs a ride! My car can fit 5 people!");
+    const [editedTitle, setEditedTitle] = useState(initialTitle);
+    const [editedBody, setEditedBody] = useState(initialBody);
     const [isHidden, setIsHidden] = useState(false);
 
     const handleEditClick = () => {
         setIsEditing(true);
     };
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setMessage(e.target.value);
+    const handleEditTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setEditedTitle(e.target.value);
+    };
+
+    const handleEditBodyChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setEditedBody(e.target.value);
     };
 
     const handleEditComplete = () => {
@@ -22,8 +34,6 @@ export function ChatBox() {
     };
 
     const handleDeleteClick = () => {
-        // Delete the chat box here, for example, by setting a state to hide it
-        // Or by removing it from the parent component's state or DOM
         setIsHidden(true);
         console.log("Chat box deleted");
     };
@@ -35,17 +45,26 @@ export function ChatBox() {
     return (
         <div className='chatBoxStyle'>
             <div className='headerStyle'>
-                <h1>Pickleball Carpool</h1>
+                {isEditing ? (
+                    <input
+                        type="text"
+                        value={editedTitle}
+                        onChange={handleEditTitleChange}
+                        onBlur={handleEditComplete}
+                    />
+                ) : (
+                    <h1>{initialTitle}</h1>
+                )}
             </div>
             {isEditing ? (
                 <input
                     type="text"
-                    value={message}
-                    onChange={handleInputChange}
+                    value={editedBody}
+                    onChange={handleEditBodyChange}
                     onBlur={handleEditComplete}
                 />
             ) : (
-                <p>{message}</p>
+                <p>{initialBody}</p>
             )}
             <div className='userInfoStyle'>
                 <h2>Poster: testemail@davidson.edu</h2>

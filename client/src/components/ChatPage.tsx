@@ -1,14 +1,18 @@
+import React from 'react';
 import { ChatBox } from './ChatBox'; // Assuming you have a ChatBox component
-import '../styles/ChatPage.css'
+import '../styles/ChatPage.css';
 
-export function ChatPage() {
+interface ChatPageProps {
+    chatMessages: { title: string; body: string }[]; // Define chatMessages prop
+}
+
+export function ChatPage({ chatMessages }: ChatPageProps) {
     return (
         <div className='chatContainerStyle'>
             <div className='chatBoxContainerStyle'>
-                <ChatBox />
-                <ChatBox />
-                <ChatBox />
-                {/* Add more ChatBox components as needed */}
+                {chatMessages.map((message, index) => (
+                    <ChatBox key={index} initialTitle={message.title} initialBody={message.body} />
+                ))}
             </div>
         </div>
     );
