@@ -23,13 +23,12 @@ const createPost = async (req: Request, res: Response) => {
     }
 };
 
-//Get all posts of a user
+//Get all posts - in descending order of creation
 const getAllPosts = async (req: Request, res: Response) => {
     try {
-        const userId = req.body.userId;
         const posts = await prisma.post.findMany({
-            where: {
-                userId: userId
+            orderBy: {
+                createdAt: 'desc'
             }
         });
         res.status(200).json({message: "All posts fetched successfully", data: posts});
