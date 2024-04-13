@@ -62,4 +62,6 @@ const getPostReplies = async (req: Request, res: Response) => {
     }
 }
 
-export {createPost, getAllPosts, getPostReplies};
+export {createPost, 
+        getAllPosts,
+        getPostReplies};
