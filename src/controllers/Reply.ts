@@ -1,7 +1,7 @@
 import prisma from '../config/client';
 import { Request, Response } from 'express';
 
-// Create a new post
+// Create a new reply
 const createReply = async (req: Request, res: Response) => {
     try {
         const {content, userId, postId} = req.body;
@@ -23,4 +23,4 @@ const createReply = async (req: Request, res: Response) => {
     }
 };
 
-export {createReply};
+export { createReply };

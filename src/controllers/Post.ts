@@ -43,5 +43,24 @@ const getAllPosts = async (req: Request, res: Response) => {
     }
 }
 
-export {createPost,
-        getAllPosts};
+// Get all replies of a post
+const getPostReplies = async (req: Request, res: Response) => {
+    try {
+        const postId = req.body.postId;
+        const replies = await prisma.reply.findMany({
+            where: {
+                postId: postId
+            }
+        });
+        res.status(200).json({message: "All replies fetched successfully", data: replies});
+    } catch (error) {
+        if (error instanceof Error) {
+            res.status(400).json({ error: error.message });
+        } 
+        else {
+            res.status(400).json({ error: "An unknown error occurred" });
+        };
+    }
+}
+
+export {createPost, getAllPosts, getPostReplies};
