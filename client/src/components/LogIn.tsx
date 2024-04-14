@@ -27,7 +27,7 @@ export function LoginButton() {
           }
       });
       
-      navigate('/dashboard');
+      navigate('/home');
     }).catch((error) => {
       console.log("Error occurred: ", error);
     });
