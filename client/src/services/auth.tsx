@@ -1,6 +1,5 @@
-import { sign } from "crypto";
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, signInWithPopup, setPersistence, browserSessionPersistence } from "firebase/auth";
 
 const firebaseConfig = {
         apiKey: "AIzaSyDnklgdolzrDa5RwWdxgU4ML_PzzQXSJMg",
@@ -17,6 +16,7 @@ export const auth = getAuth(app);
 
 const provider = new GoogleAuthProvider();
 
+setPersistence(auth, browserSessionPersistence);
 export const signInWithGoogle = async () => {
     await signInWithPopup(auth, provider).then((result) => {
       console.log("User signed in successfully", result);
