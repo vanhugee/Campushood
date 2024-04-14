@@ -9,9 +9,11 @@ import deleteImage from '../assets/delete.png';
 interface ChatBoxProps {
     initialTitle: string;
     initialBody: string;
+    isReply?: boolean;
+    onReply?: () => void; // Callback function for handling reply action
 }
 
-export function ChatBox({ initialTitle, initialBody }: ChatBoxProps) {
+export function ChatBox({ initialTitle, initialBody, isReply = false, onReply }: ChatBoxProps) {
     const [isEditing, setIsEditing] = useState(false);
     const [editedTitle, setEditedTitle] = useState(initialTitle);
     const [editedBody, setEditedBody] = useState(initialBody);
@@ -38,12 +40,18 @@ export function ChatBox({ initialTitle, initialBody }: ChatBoxProps) {
         console.log("Chat box deleted");
     };
 
+    const handleReplyClick = () => {
+        if (onReply) {
+            onReply(); // Call the onReply callback function if provided
+        }
+    };
+
     if (isHidden) {
         return null; // Return null to hide the chat box
     }
 
     return (
-        <div className='chatBoxStyle'>
+        <div className={`chatBoxStyle ${isReply ? 'replyBoxStyle' : ''}`}>
             <div className='headerStyle'>
                 {isEditing ? (
                     <input
@@ -53,7 +61,7 @@ export function ChatBox({ initialTitle, initialBody }: ChatBoxProps) {
                         onBlur={handleEditComplete}
                     />
                 ) : (
-                    <h1>{initialTitle}</h1>
+                    <h1>{editedTitle}</h1>
                 )}
             </div>
             {isEditing ? (
@@ -64,14 +72,16 @@ export function ChatBox({ initialTitle, initialBody }: ChatBoxProps) {
                     onBlur={handleEditComplete}
                 />
             ) : (
-                <p>{initialBody}</p>
+                <p>{editedBody}</p>
             )}
             <div className='userInfoStyle'>
                 <h2>Poster: testemail@davidson.edu</h2>
+                <h2>Time Posted: --:--</h2>
+
             </div>
             <div className='chatFunctionalities'>
                 <img src={editImage} alt="Edit Image" style={{ width: '3%', height: '3%' }} onClick={handleEditClick} />
-                <img src={replyImage} alt="Reply Image" style={{ width: '3%', height: '3%' }} />
+                <img src={replyImage} alt="Reply Image" style={{ width: '3%', height: '3%' }} onClick={handleReplyClick} />
                 <img src={deleteImage} alt="Delete Image" style={{ width: '3%', height: '3%' }} onClick={handleDeleteClick} />
             </div>
         </div>
