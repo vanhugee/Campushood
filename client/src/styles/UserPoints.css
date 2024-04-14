@@ -1,9 +1,8 @@
 .pointsContainerStyle {
-    position: absolute;
-    top: 80px;
-    padding: 5px 15px;
+    position: relative;
+    display: inline-block;
     border-radius: 5px;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
 .pointsTextStyle {

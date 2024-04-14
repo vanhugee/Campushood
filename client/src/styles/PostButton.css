@@ -1,5 +1,22 @@
 .postContainer {
-    display: flex;
+    display: inline-block;
     flex-direction: column;
     align-items: center;
+    padding: 10px;
+    background-color: rgb(180, 30, 199);
 }
+
+  .postContainer input[type="text"] {
+    width: calc(80% - 70px);
+    padding: 8px;
+    margin: 10px;
+    
+  }
+  .postContainer button {
+    padding: 8px 20px;
+    background-color: #5e4caf;
+    color: white;
+    border: none;
+    cursor: pointer;
+    
+  }

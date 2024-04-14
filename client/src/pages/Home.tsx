@@ -18,15 +18,15 @@ export function Home() {
     return (
         <div>
             <Navbar />
-            <PostButton onPost={handlePost} />
             <div>
                 <div className='sidebar'><Sidebar /></div>
-                <div className='userIconStyle'>
-                    <UserPoints />
+                <div>
+                    <PostButton onPost={handlePost} />
+                    <div className='homeStyle'>
+                        <ChatPage chatMessages={chatMessages} />
+                    </div>
                 </div>
-                <div className='homeStyle'>
-                    <ChatPage chatMessages={chatMessages} />
-                </div>
+
             </div>
         </div>
     );

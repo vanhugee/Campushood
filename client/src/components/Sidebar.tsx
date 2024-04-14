@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/Sidebar.css'
+import { UserPoints } from './UserPoints';
  
 
 
@@ -17,6 +18,8 @@ const Sidebar = () => {
         <li><a href="/misc">Misc</a></li>
       </ul>
     </div>
+    <UserPoints/>
+
     </div>
   );
 };

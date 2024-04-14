@@ -4,7 +4,7 @@
 }
 
 .userIconStyle {
-    position: absolute;
+    position: relative;
     top: 5px;
     right: -13px;
     height: 10%;
