@@ -2,41 +2,34 @@
     display: inline-block;
     position: relative;
 }
-
 .userIconStyle {
     position: relative;
     height: 10%;
     width: 10%;
 }
-
 body {
     margin: 0;
     padding: 0;
 }
-
 .container {
     display: flex;
 }
-
 .content {
     flex: 1;
     display: flex;
     flex-direction: column;
     position: relative;
 }
-
 .centered {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
 }
-
 .topRight {
     position: absolute;
-    top: 10px; 
-    right: 10px; 
+    top: 10px;
+    right: 10px;
 }
-
 .sidebar {
     width: 10px; /* Adjust width as needed */
     /* Add any other styles you need for the sidebar */
