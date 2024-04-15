@@ -14,7 +14,7 @@ datasource db {
 }
 
 model User {
-  id      Int      @id @default(autoincrement())
+  id      String      @id
   email   String   @unique
   name    String
   posts   Post[]
@@ -29,9 +29,10 @@ model Post {
   updatedAt DateTime @updatedAt
   title     String   @db.VarChar(255)
   content   String
+  tags      String
   replies   Reply[]
   user    User     @relation(fields: [userId], references: [id])
-  userId  Int
+  userId  String
 }
 
 model Reply {
@@ -40,7 +41,7 @@ model Reply {
   updatedAt DateTime @updatedAt
   content   String
   user    User     @relation(fields: [userId], references: [id])
-  userId  Int
+  userId  String
   post      Post    @relation(fields: [postId], references: [id])
   postId    Int
 }
