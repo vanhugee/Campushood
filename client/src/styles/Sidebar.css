@@ -4,18 +4,16 @@
     position: relative;
     left: 0;
     top: 0;
-
     bottom: 0;
     width: fit-content;
-    min-width: 100px;
+    min-width: 110px;
     height: 100%;
-    background-color: #49005c;
+    background-color: rgb(73, 0, 92);
     color: #fff;
     margin: 10px;
 
   }
   
-
   
   .sidebar-links {
     list-style-type: none;

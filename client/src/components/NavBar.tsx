@@ -1,6 +1,6 @@
-import React from 'react';
-
-import campushoodLogo from "../assets/logo.png"
+import React, { useState } from 'react';
+import campushoodLogo from "../assets/logo.png";
+import Sidebar from './Sidebar';
 
 
 const Navbar = () => {
@@ -8,7 +8,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-logo">
           <a href="/">
-          <img src={campushoodLogo} alt="Edit Image" style={{ width: '100%', height: '100%' }}  />
+          <img src={campushoodLogo} alt="Campushood Logo" style={{ width: '100%', height: '100%' }}  />
           </a>
       </div>
 
