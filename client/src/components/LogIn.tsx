@@ -13,6 +13,7 @@ export function LoginButton() {
           if (user) {
               console.log(user);
               axios.post('http://localhost:8080/user/create', {
+                id: user.uid,
                 email: user.email,
                 name: user.displayName,
               })

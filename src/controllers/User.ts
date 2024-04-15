@@ -5,13 +5,14 @@ import { Request, Response } from 'express';
 // Create a new user
 const createUser = async (req: Request, res: Response) => {
     try {
-        const {email, name } = req.body;
+        const {id, email, name } = req.body;
         const newUser = await prisma.user.upsert({
             where: {
-              email: email,
+              id: id,
             },
             update: {},
             create: {
+              id: id,
               email: email,
               name: name
             },
