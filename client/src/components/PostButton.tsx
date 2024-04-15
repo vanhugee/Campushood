@@ -1,5 +1,5 @@
-// PostButton.tsx
-
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import axios from 'axios';
 import React, { useState } from 'react';
 import '../styles/PostButton.css'; // Import the CSS file for the button styling
 
@@ -15,6 +15,27 @@ export function PostButton({ onPost }: PostButtonProps) {
         onPost(title, body); // Call the onPost function with title and body
         setTitle(''); // Clear the title input after posting
         setBody(''); // Clear the body input after posting
+        const auth = getAuth();
+        onAuthStateChanged(auth, (user) => {
+            console.log(user);
+            if (user) {
+                console.log(user);
+                axios.post('http://localhost:8080/post/create', {
+                    title: title,
+                    content: body,
+                    userId: user.uid,
+                    tag: "TRANSPO",
+                })
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            } else {
+                console.log("Unable to post");
+            }
+        });
     };
 
     return (
