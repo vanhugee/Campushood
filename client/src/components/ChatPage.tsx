@@ -8,7 +8,7 @@ import { Post, Reply, User } from '@prisma/client';
 
 
 interface ChatPageProps {
-    chatMessages: { title: string; body: string }[]; // Define chatMessages prop
+    chatMessages: { title: string; body: string; filter: string }[]; // Define chatMessages prop
     userInfo: any;
 }
 
@@ -53,7 +53,8 @@ export function ChatPage({ chatMessages, userInfo }: ChatPageProps) {
                             user={message.user} 
                             postId={message.id}
                             initialTitle={message.title} 
-                            initialBody={message.content} />
+                            initialBody={message.content}
+                            initialFilter='FOOD' />
                 ))}
             </div> 
     

@@ -9,15 +9,15 @@ import { useNavigate } from 'react-router-dom';
 import '../styles/Home.css'
 
 export function Home() {
-    const [chatMessages, setChatMessages] = useState<{ title: string; body: string; }[]>([]);
+    const [chatMessages, setChatMessages] = useState<{ title: string; body: string; filter: string }[]>([]);
     const navigate = useNavigate();
     if (!localStorage.getItem('user')) {
         navigate('/login');
     }
     const userData = JSON.parse(localStorage.getItem('user')!);
 
-    const handlePost = (title: string, body: string) => {
-        setChatMessages([...chatMessages, { title, body }]);
+    const handlePost = (title: string, body: string, filter: string) => {
+        setChatMessages([...chatMessages, { title, body, filter }]);
     };
 
     const users = [

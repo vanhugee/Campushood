@@ -7,7 +7,7 @@ import '../styles/PostButton.css'; // Import the CSS file for the button styling
 
 interface PostButtonProps {
     userInfo: any;
-    onPost: (title: string, body: string) => void; // Update the prop type to accept title and body
+    onPost: (title: string, body: string, filter: string) => void; // Update the prop type to accept title and body
 }
 
 export function PostButton({ onPost, userInfo }: PostButtonProps) {
@@ -19,6 +19,7 @@ export function PostButton({ onPost, userInfo }: PostButtonProps) {
         onPost(title, body, filter); // Call the onPost function with title, body, and filter
         setTitle(''); // Clear the title input after posting
         setBody(''); // Clear the body input after posting
+        setFilter(''); // Clear the filter input after posting
         console.log("PostButton_here", userInfo.uid);
         axios.post('http://localhost:8080/post/create', {
             title: title,
