@@ -91,7 +91,7 @@ export function ChatBox({ initialTitle, initialBody, initialFilter }: ChatBoxPro
 
             <div className='replyContainer'>{isEditingReplies && <ReplyBox onPost={handlePostReply} />} {/* Display the ReplyBox only when editing */}
                 {replies.map((reply, index) => (
-                    <p key={index}>{"username: " + reply}</p>
+                    <p key={index}><strong>username: </strong>{reply}</p>
                 ))}
             </div>
         </div>
