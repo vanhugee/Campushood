@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import campushoodLogo from "../assets/logo.png";
 import Sidebar from './Sidebar';
-
+import '../styles/Navbar.css'
 
 const Navbar = () => {
   return (

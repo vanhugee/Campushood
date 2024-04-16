@@ -13,6 +13,7 @@ interface ChatBoxProps {
     initialBody: string;
     initialFilter: string;
 }
+
 export function ChatBox({ initialTitle, initialBody, initialFilter }: ChatBoxProps) {
     const [isEditing, setIsEditing] = useState(false);
     const [editedTitle, setEditedTitle] = useState(initialTitle);

@@ -1,14 +1,12 @@
 /* Sidebar.css */
 .sidebar {
-  display: inline-block;
-  position: relative;
+  position: fixed;
   left: 0;
-  top: 0;
+  top: 55px;
   bottom: 0;
-  width: 7.5%;
+  width: 1%;
   min-width: 110px;
-  height: 100%;
-  background-color: rgb(73, 0, 92);
+  background-color: rgb(50, 0, 62);
   color: #fff;
 
 }

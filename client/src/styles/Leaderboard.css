@@ -1,0 +1,11 @@
+.leaderboard {
+    align-items: center;
+    display: inline-block;
+    position: fixed;
+    right: 60px;
+}
+
+.leaderboard h2 {
+    border: 2px solid black; /* Add a black border */
+    padding: 10px; /* Add some padding for spacing */
+}
