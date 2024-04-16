@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Sidebar from '../components/Sidebar'
 import Navbar from '../components/Navbar'
 import { PostButton } from '../components/PostButton'
-import { ChatPage } from '../componenonPost={handlePost}ts/ChatPage'
+import { ChatPage } from '../components/ChatPage'
 import Leaderboard from '../components/Leaderboard'
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';

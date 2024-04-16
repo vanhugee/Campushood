@@ -5,32 +5,27 @@ import axios from 'axios';
 import { response } from 'express';
 import { useState, useEffect } from 'react';
 import { Post, Reply, User } from '@prisma/client';
-
-
 interface ChatPageProps {
     chatMessages: { title: string; body: string; filter: string }[]; // Define chatMessages prop
     userInfo: any;
 }
-
 interface PostData {
-    id: number      
+    id: number
     createdAt: string
     updatedAt: string
-    title: string   
+    title: string
     content: string
     tags: string
     replies: Reply[]
-    user: User     
+    user: User
     userId: string
 }
-
-
 export function ChatPage({ chatMessages, userInfo }: ChatPageProps) {
     const [fetchedMessages, setFetchedMessages] = useState<PostData[]>([]);
     const [timeArray, setTimeArray] = useState<string[]>([]);
     useEffect(() => {
         const fetchData = async () => {
-            await axios.get('http://localhost:8080/post/getAll', 
+            await axios.get('http://localhost:8080/post/getAll',
                 {}).then(function(response) {
                     console.log(response.data.data.timeArray);
                     console.log(response.data.data.posts);
@@ -42,22 +37,20 @@ export function ChatPage({ chatMessages, userInfo }: ChatPageProps) {
         };
         fetchData();
     }, []);
-
     return (
         <div className='chatContainerStyle'>
-            
             <div className='chatBoxContainerStyle'>
                 {fetchedMessages && timeArray && fetchedMessages.map((message, index) => (
                     <ChatBox key={index}
                             timeDiff={timeArray[index]}
-                            user={message.user} 
+                            user={message.user}
                             postId={message.id}
-                            initialTitle={message.title} 
+                            initialTitle={message.title}
                             initialBody={message.content}
+                            repliesData={message.replies}
                             initialFilter='FOOD' />
                 ))}
-            </div> 
-    
+            </div>
         </div>
     );
 }
