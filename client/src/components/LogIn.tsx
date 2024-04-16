@@ -19,6 +19,9 @@ export function LoginButton() {
               })
               .then(function (response) {
                 console.log(response);
+                if (response.status === 201) {
+                  localStorage.setItem('user', JSON.stringify(user));
+                }
               })
               .catch(function (error) {
                 console.log(error);
