@@ -21,8 +21,9 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ users }) => {
       <ol>
         {sortedUsers.map((user, index) => (
           <li key={user.id}>
-            <span>{user.name}</span>
-            <span>{user.points} points</span>
+            <span>{user.name} </span>
+            <span className="points">{user.points} pts</span>
+            {index < sortedUsers.length - 1 && <hr />} {/* Add a horizontal line if not the last item */}
           </li>
         ))}
       </ol>

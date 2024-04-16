@@ -9,3 +9,18 @@
     border: 2px solid black; /* Add a black border */
     padding: 10px; /* Add some padding for spacing */
 }
+
+.leaderboard span {
+    margin-right: 10px; /* Adjust the value as needed */
+    margin-left: 10px;
+  }
+
+.leaderboard hr {
+    border: none;
+    border-bottom: 1px solid black; /* Customize the border style */
+    margin: 5px; /* Add some vertical margin */
+}
+
+.leaderboard .points {
+    float: right;
+  }
