@@ -13,9 +13,10 @@ interface PostButtonProps {
 export function PostButton({ onPost, userInfo }: PostButtonProps) {
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
+    const [filter, setFilter] = useState(''); // State to track selected filter
 
     const handleClick = () => {
-        onPost(title, body); // Call the onPost function with title and body
+        onPost(title, body, filter); // Call the onPost function with title, body, and filter
         setTitle(''); // Clear the title input after posting
         setBody(''); // Clear the body input after posting
         console.log("PostButton_here", userInfo.uid);
@@ -34,6 +35,13 @@ export function PostButton({ onPost, userInfo }: PostButtonProps) {
     return (
         <div className="postContainer">
             <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title" />
+            <select value={filter} onChange={(e) => setFilter(e.target.value)}>
+                <option value="">Select Filter</option>
+                <option value="Food">Food</option>
+                <option value="Transportation">Transportation</option>
+                <option value="Miscellaneous">Miscellaneous</option>
+                {/* Add more options as needed */}
+            </select>
             <input type="text" value={body} onChange={(e) => setBody(e.target.value)} placeholder="Body" />
             <button onClick={handleClick}>Post</button>
         </div>

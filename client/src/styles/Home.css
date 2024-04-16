@@ -1,17 +1,32 @@
 .homeStyle {
-    display: inline-block;
-    position: relative;
+    overflow-y: fixed;
 }
-
 .userIconStyle {
     position: relative;
-    top: 5px;
-    right: -13px;
     height: 10%;
     width: 10%;
 }
-
 body {
     margin: 0;
     padding: 0;
+}
+.container {
+    display: inline-block;
+    padding-left: 30px;
+    margin-top: 80px;
+}
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.centered {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.sidebarX {
+    width: 100px; /* Adjust width as needed */
+    display: inline-block;
 }

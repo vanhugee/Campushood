@@ -45,11 +45,7 @@ export function ChatPage({ chatMessages, userInfo }: ChatPageProps) {
 
     return (
         <div className='chatContainerStyle'>
-            {/* <div className='chatBoxContainerStyle'>
-                {chatMessages.map((message, index) => (
-                    <ChatBox key={index} initialTitle={message.title} initialBody={message.body} />
-                ))}
-            </div> */}
+            
             <div className='chatBoxContainerStyle'>
                 {fetchedMessages && timeArray && fetchedMessages.map((message, index) => (
                     <ChatBox key={index}
@@ -59,7 +55,8 @@ export function ChatPage({ chatMessages, userInfo }: ChatPageProps) {
                             initialTitle={message.title} 
                             initialBody={message.content} />
                 ))}
-            </div>
+            </div> 
+    
         </div>
     );
 }

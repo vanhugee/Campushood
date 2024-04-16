@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
 import '../styles/Sidebar.css'
-import { UserPoints } from './UserPoints';
  
 
 
 const Sidebar = () => {
-
   return (
-    <div>
-    <div className={'sidebar'}>
+    <section className={'sidebar'}>
       
       <ul className="sidebar-links">
         <li><a href="/all">All</a></li>
@@ -17,10 +14,8 @@ const Sidebar = () => {
         <li><a href="/transpo">Transport</a></li>
         <li><a href="/misc">Misc</a></li>
       </ul>
-    </div>
-    <UserPoints/>
-
-    </div>
+    </section>
+  
   );
 };
 

@@ -1,5 +1,24 @@
 .replyContainer {
-    display: flex;
+    display: inline-block;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
+    width: 100%;
+    padding: 10px;
+    border: 1px white;
+    border-radius: 2px;
 }
+.replyContainer input[type="text"] {
+    width: calc(80% - 70px);
+    padding: 8px;
+    
+  }
+
+  .replyContainer button {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: #5e4caf;
+    color: white;
+    border: none;
+    cursor: pointer;
+    
+  }

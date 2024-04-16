@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import '../styles/ChatBox.css';
+import '../styles/ReplyBox.css';
 import editImage from '../assets/edit.png';
 import replyImage from '../assets/reply.png';
 import deleteImage from '../assets/delete.png';
@@ -13,11 +14,13 @@ interface ChatBoxProps {
     timeDiff: string;
     initialTitle: string;
     initialBody: string;
+    initialFilter: string;
 }
 export function ChatBox({ user, timeDiff, postId, initialTitle, initialBody }: ChatBoxProps) {
     const [isEditing, setIsEditing] = useState(false);
     const [editedTitle, setEditedTitle] = useState(initialTitle);
     const [editedBody, setEditedBody] = useState(initialBody);
+    /*const [editedFilter, setEditedFilter] = useState(initialFilter);*/
     const [isHidden, setIsHidden] = useState(false);
     const [replies, setReplies] = useState<string[]>([]); // State for replies
     const [isEditingReplies, setIsEditingReplies] = useState(false);
@@ -31,6 +34,9 @@ export function ChatBox({ user, timeDiff, postId, initialTitle, initialBody }: C
     const handleEditBodyChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setEditedBody(e.target.value);
     };
+    /*const handleEditFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setEditedFilter(e.target.value);
+    };*/
     const handleEditComplete = () => {
         setIsEditing(false);
     };
@@ -38,7 +44,7 @@ export function ChatBox({ user, timeDiff, postId, initialTitle, initialBody }: C
         setIsHidden(true);
         console.log("Chat box deleted");
     };
-    const handleReplyEditClick= () => {
+    const handleReplyEditClick = () => {
         setIsEditingReplies(true);
     }
     const handlePostReply = (reply: string) => {
@@ -58,7 +64,7 @@ export function ChatBox({ user, timeDiff, postId, initialTitle, initialBody }: C
                         onBlur={handleEditComplete}
                     />
                 ) : (
-                    <h1>{editedTitle}</h1>
+                    <h3>{editedTitle}</h3>
                 )}
             </div>
             {isEditing ? (
