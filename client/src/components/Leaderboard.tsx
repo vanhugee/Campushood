@@ -14,6 +14,8 @@ interface LeaderboardProps {
 const Leaderboard: React.FC<LeaderboardProps> = ({ users }) => {
   // Sort users based on points in descending order
   const sortedUsers = users.sort((a, b) => b.points - a.points);
+  
+
 
   return (
     <div className="leaderboard">
