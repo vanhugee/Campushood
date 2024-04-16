@@ -6,7 +6,8 @@ import { ChatPage } from '../components/ChatPage'
 import Leaderboard from '../components/Leaderboard'
 import '../styles/Home.css'
 import Grid from '@mui/material/Grid';
-import { purple } from '@mui/material/colors';
+import background2 from '../assets/purplebg.jpg'
+
 
 export function Home() {
     const [chatMessages, setChatMessages] = useState<{ title: string; body: string; filter: string }[]>([]);
@@ -25,25 +26,8 @@ export function Home() {
     ];
 
     return (
-        /*         <div className='homeStyle'>
-                    <Navbar />
-                    <section className="sidebarX">
-                        <Sidebar />
-                    </section>
-                    <div className="container">
-                        <div className="content">
-                            <div className="centered">
-                                <PostButton onPost={handlePost} />
-                            </div>
-                            <div className='homeStyle'>
-                                <ChatPage chatMessages={chatMessages} />
-                            </div>
-                        </div>
-                    </div>
-        
-                    <Leaderboard users={users} /></div> */
          
-        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} style={{backgroundColor: 'rgb(203, 195, 227)'}}>
             <Grid item xs={12}>
                 <Navbar />
             </Grid>
