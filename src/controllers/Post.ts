@@ -33,7 +33,8 @@ const getAllPosts = async (req: Request, res: Response) => {
                 createdAt: 'desc'
             },
             include: {
-                user: true
+                user: true,
+                replies: true
             }
         });
         let timeArray = [];

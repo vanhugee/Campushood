@@ -4,7 +4,7 @@ import '../styles/ChatPage.css';
 import axios from 'axios';
 import { response } from 'express';
 import { useState, useEffect } from 'react';
-import { Post } from '@prisma/client';
+import { Post, Reply, User } from '@prisma/client';
 
 
 interface ChatPageProps {
@@ -12,8 +12,21 @@ interface ChatPageProps {
     userInfo: any;
 }
 
+interface PostData {
+    id: number      
+    createdAt: string
+    updatedAt: string
+    title: string   
+    content: string
+    tags: string
+    replies: Reply[]
+    user: User     
+    userId: string
+}
+
+
 export function ChatPage({ chatMessages, userInfo }: ChatPageProps) {
-    const [fetchedMessages, setFetchedMessages] = useState<Post[]>([]);
+    const [fetchedMessages, setFetchedMessages] = useState<PostData[]>([]);
     useEffect(() => {
         const fetchData = async () => {
             await axios.get('http://localhost:8080/post/getAll', 
@@ -26,7 +39,6 @@ export function ChatPage({ chatMessages, userInfo }: ChatPageProps) {
         };
         fetchData();
     }, []);
-    console.log(fetchedMessages);
 
     return (
         <div className='chatContainerStyle'>
@@ -37,7 +49,10 @@ export function ChatPage({ chatMessages, userInfo }: ChatPageProps) {
             </div> */}
             <div className='chatBoxContainerStyle'>
                 {fetchedMessages && fetchedMessages.map((message, index) => (
-                    <ChatBox key={index} initialTitle={message.title} initialBody={message.content} />
+                    <ChatBox key={index}
+                            userInfo={message.user} 
+                            initialTitle={message.title} 
+                            initialBody={message.content} />
                 ))}
             </div>
         </div>

@@ -5,11 +5,15 @@ import editImage from '../assets/edit.png';
 import replyImage from '../assets/reply.png';
 import deleteImage from '../assets/delete.png';
 import { ReplyBox } from './ReplyBox';
+import { User } from '@prisma/client';
+import { userInfo } from 'os';
+
 interface ChatBoxProps {
+    userInfo: User;
     initialTitle: string;
     initialBody: string;
 }
-export function ChatBox({ initialTitle, initialBody }: ChatBoxProps) {
+export function ChatBox({ userInfo, initialTitle, initialBody }: ChatBoxProps) {
     const [isEditing, setIsEditing] = useState(false);
     const [editedTitle, setEditedTitle] = useState(initialTitle);
     const [editedBody, setEditedBody] = useState(initialBody);
@@ -67,7 +71,7 @@ export function ChatBox({ initialTitle, initialBody }: ChatBoxProps) {
                 <p>{editedBody}</p>
             )}
             <div className='userInfoStyle'>
-                <h2>Poster: testemail@davidson.edu</h2>
+                <h2>Poster: {userInfo.email}</h2>
                 <h2>Time Posted: --:--</h2>
             </div>
             <div className='chatFunctionalities'>
