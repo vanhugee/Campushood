@@ -15,6 +15,8 @@ export function ReplyBox(){
 import React, { useState } from 'react';
 import { ReplyButton } from './ReplyButton';
 interface ReplyBoxProps {
+    postId: number;
+    userId: string;
     onPost: (reply: string) => void; // Callback function to handle posting a reply
 }
 export function ReplyBox({ onPost }: ReplyBoxProps) {

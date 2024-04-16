@@ -55,6 +55,7 @@ export function ChatPage({ chatMessages, userInfo }: ChatPageProps) {
                     <ChatBox key={index}
                             timeDiff={timeArray[index]}
                             user={message.user} 
+                            postId={message.id}
                             initialTitle={message.title} 
                             initialBody={message.content} />
                 ))}

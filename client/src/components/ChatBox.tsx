@@ -6,15 +6,15 @@ import replyImage from '../assets/reply.png';
 import deleteImage from '../assets/delete.png';
 import { ReplyBox } from './ReplyBox';
 import { User } from '@prisma/client';
-import { userInfo } from 'os';
 
 interface ChatBoxProps {
     user: User;
+    postId: number;
     timeDiff: string;
     initialTitle: string;
     initialBody: string;
 }
-export function ChatBox({ user, timeDiff, initialTitle, initialBody }: ChatBoxProps) {
+export function ChatBox({ user, timeDiff, postId, initialTitle, initialBody }: ChatBoxProps) {
     const [isEditing, setIsEditing] = useState(false);
     const [editedTitle, setEditedTitle] = useState(initialTitle);
     const [editedBody, setEditedBody] = useState(initialBody);
@@ -80,7 +80,10 @@ export function ChatBox({ user, timeDiff, initialTitle, initialBody }: ChatBoxPr
                 <img src={replyImage} alt="Reply Image" style={{ width: '3%', height: '3%' }} onClick={handleReplyEditClick} />
                 <img src={deleteImage} alt="Delete Image" style={{ width: '3%', height: '3%' }} onClick={handleDeleteClick} />
             </div>
-            {isEditingReplies && <ReplyBox onPost={handlePostReply} />} {/* Display the ReplyBox only when editing */}
+            {isEditingReplies && <ReplyBox
+                                postId={postId}
+                                userId={user.id} 
+                                onPost={handlePostReply} />} {/* Display the ReplyBox only when editing */}
             {replies.map((reply, index) => (
                 <p key={index}>{reply}</p>
             ))}

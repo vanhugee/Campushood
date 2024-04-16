@@ -1,13 +1,15 @@
-// ReplyButton.tsx
+import { useState } from 'react';
+import axios from 'axios';
+import '../styles/ReplyBox.css'; 
 
-import React, { useState } from 'react';
-import '../styles/ReplyBox.css'; // Import the CSS file for the button styling
 
 interface ReplyButtonProps {
+    userId: string;
+    postId: number;
     onPost: (body: string) => void; // Update the prop type to accept title and body
 }
 
-export function ReplyButton({ onPost }: ReplyButtonProps) {
+export function ReplyButton({ userId, postId, onPost }: ReplyButtonProps) {
     const [body, setBody] = useState('');
 
     const handleReplyClick = () => {
