@@ -43,7 +43,8 @@ export function ChatBox({ initialTitle, initialBody, initialFilter }: ChatBoxPro
         console.log("Chat box deleted");
     };
     const handleReplyEditClick = () => {
-        setIsEditingReplies(true);
+        if (isEditingReplies) {setIsEditingReplies(false);}
+        else {setIsEditingReplies(true);}
     }
     const handlePostReply = (reply: string) => {
         setReplies([...replies, reply]); // Add new reply to replies array
@@ -83,9 +84,9 @@ export function ChatBox({ initialTitle, initialBody, initialFilter }: ChatBoxPro
 
             </div>
             <div className='chatFunctionalities'>
-                <img src={editImage} alt="Edit Image" style={{ width: '3%', height: '3%' }} onClick={handleEditClick} />
-                <img src={replyImage} alt="Reply Image" style={{ width: '3%', height: '3%' }} onClick={handleReplyEditClick} />
-                <img src={deleteImage} alt="Delete Image" style={{ width: '3%', height: '3%' }} onClick={handleDeleteClick} />
+                <img src={editImage} alt="Edit Image" style={{ width: '3%', height: '3%', cursor:'pointer' }} onClick={handleEditClick} />
+                <img src={replyImage} alt="Reply Image" style={{ width: '3%', height: '3%', cursor:'pointer' }} onClick={handleReplyEditClick} />
+                <img src={deleteImage} alt="Delete Image" style={{ width: '3%', height: '3%', cursor:'pointer'}} onClick={handleDeleteClick} />
             </div>
 
             <div className='replyContainer'>{isEditingReplies && <ReplyBox onPost={handlePostReply} />} {/* Display the ReplyBox only when editing */}

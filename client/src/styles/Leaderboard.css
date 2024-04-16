@@ -1,8 +1,8 @@
 .leaderboard {
     align-items: center;
     display: inline-block;
-    position: fixed;
-    right: 60px;
+    position: relative;
+    
 }
 
 .leaderboard h2 {

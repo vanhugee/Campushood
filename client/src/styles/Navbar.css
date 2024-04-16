@@ -5,13 +5,12 @@
     align-items: center;
     background-color: rgb(50, 0, 62);
     color: #fff;
-    padding: 10px 20px;
+    padding-top: 10px;
+    z-index: 100;
+    position: sticky;
+    
+    
   }
-  
-  .navbar-logo img {
-    height: 50px; /* Adjust based on your logo's size */
-  }
-  
   .navbar-links {
     list-style: none;
     display: flex;

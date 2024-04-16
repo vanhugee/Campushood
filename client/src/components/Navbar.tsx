@@ -1,22 +1,33 @@
-import React, { useState } from 'react';
 import campushoodLogo from "../assets/logo.png";
-import Sidebar from './Sidebar';
-import '../styles/Navbar.css'
+import '../styles/Navbar.css';
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+
 
 const Navbar = () => {
   return (
-    <nav className="navbar">
-      <div className="navbar-logo">
-          <a href="/">
-          <img src={campushoodLogo} alt="Campushood Logo" style={{ width: '100%', height: '100%' }}  />
-          </a>
-      </div>
 
-      <ul className="navbar-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/">Account</a></li>
-      </ul>
-    </nav>
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="sticky">
+        <Toolbar className="navbar">
+          
+            <a href="/">
+              <img src={campushoodLogo} alt="Campushood Logo" style={{ width: '80%', height: '80%' }} />
+            </a>
+          
+
+          <ul className="navbar-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/">Account</a></li>
+          </ul>
+          
+        </Toolbar>
+      </AppBar>
+    </Box>
+
+
   );
 };
 

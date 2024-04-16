@@ -1,13 +1,13 @@
 /* Sidebar.css */
 .sidebar {
-  position: fixed;
-  left: 0;
-  top: 55px;
-  bottom: 0;
-  width: 1%;
-  min-width: 110px;
+  display: flex;
+  bottom: 0px;
+  height: auto;
+  width: 100%;
   background-color: rgb(50, 0, 62);
   color: #fff;
+  box-shadow: inset;
+  min-width: 50px;
 
 }
 
@@ -15,6 +15,9 @@
 .sidebar-links {
   list-style-type: none;
   padding: 0;
+  width: 100%;
+  
+  
 }
 
 .sidebar-links li a {
