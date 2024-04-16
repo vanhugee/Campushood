@@ -13,7 +13,6 @@ interface PostButtonProps {
 export function PostButton({ onPost, userInfo }: PostButtonProps) {
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
-    console.log("PostButton", userInfo);
 
     const handleClick = () => {
         onPost(title, body); // Call the onPost function with title and body

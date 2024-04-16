@@ -17,7 +17,6 @@ export function Home() {
         navigate('/login');
     }
     const userData = JSON.parse(localStorage.getItem('user')!);
-    console.log("User data retrieved from localStorage:", userData);
 
     const handlePost = (title: string, body: string) => {
         setChatMessages([...chatMessages, { title, body }]);
@@ -30,10 +29,12 @@ export function Home() {
                 <div className='sidebar'><Sidebar /></div>
                 <div>
                     <PostButton
-                        userInfo={userData} 
+                        userInfo={ userData } 
                         onPost={handlePost} />
                     <div className='homeStyle'>
-                        <ChatPage chatMessages={chatMessages} />
+                        <ChatPage 
+                            userInfo={ userData }
+                            chatMessages={chatMessages} />
                     </div>
                 </div>
 
