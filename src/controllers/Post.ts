@@ -5,12 +5,13 @@ import { formatTime } from '../utils/formatTime';
 // Create a new post
 const createPost = async (req: Request, res: Response) => {
     try {
-        const {title, content, userId} = req.body;
+        const {title, content, userId, tag} = req.body;
         const newPost = await prisma.post.create({
             data: {
                 title: title,
                 content: content,
-                userId: userId
+                userId: userId,
+                tags: tag
             }
         });
         res.status(201).json({message: "Post created successfully", data: newPost});
@@ -30,6 +31,10 @@ const getAllPosts = async (req: Request, res: Response) => {
         const posts = await prisma.post.findMany({
             orderBy: {
                 createdAt: 'desc'
+            },
+            include: {
+                user: true,
+                replies: true
             }
         });
         let timeArray = [];
@@ -71,14 +76,15 @@ const getPostReplies = async (req: Request, res: Response) => {
 // Update a post
 const updatePost = async (req: Request, res: Response) => {
     try {
-        const {postId, title, content} = req.body;
+        const {postId, title, content, tag} = req.body;
         const updatedPost = await prisma.post.update({
             where: {
                 id: postId
             },
             data: {
                 title: title,
-                content: content
+                content: content,
+                tags: tag
             }
         });
         res.status(201).json({message: "Post updated successfully", data: updatedPost});

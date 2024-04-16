@@ -6,15 +6,17 @@ import editImage from '../assets/edit.png';
 import replyImage from '../assets/reply.png';
 import deleteImage from '../assets/delete.png';
 import { ReplyBox } from './ReplyBox';
-
+import { User } from '@prisma/client';
 
 interface ChatBoxProps {
+    user: User;
+    postId: number;
+    timeDiff: string;
     initialTitle: string;
     initialBody: string;
     initialFilter: string;
 }
-
-export function ChatBox({ initialTitle, initialBody, initialFilter }: ChatBoxProps) {
+export function ChatBox({ user, timeDiff, postId, initialTitle, initialBody }: ChatBoxProps) {
     const [isEditing, setIsEditing] = useState(false);
     const [editedTitle, setEditedTitle] = useState(initialTitle);
     const [editedBody, setEditedBody] = useState(initialBody);
@@ -76,24 +78,22 @@ export function ChatBox({ initialTitle, initialBody, initialFilter }: ChatBoxPro
             ) : (
                 <p>{editedBody}</p>
             )}
-
-            <div className='extraInfoStyle'>
-                <h2>testemail@davidson.edu &nbsp; | &nbsp; </h2>
-                <h2>--:-- &nbsp; | &nbsp; </h2>
-                <h2>{initialFilter} </h2>
-
+            <div className='userInfoStyle'>
+                <h2>Poster: {user.email}</h2>
+                <h2>Time: {timeDiff}</h2>
             </div>
             <div className='chatFunctionalities'>
                 <img src={editImage} alt="Edit Image" style={{ width: '3%', height: '3%', cursor:'pointer' }} onClick={handleEditClick} />
                 <img src={replyImage} alt="Reply Image" style={{ width: '3%', height: '3%', cursor:'pointer' }} onClick={handleReplyEditClick} />
                 <img src={deleteImage} alt="Delete Image" style={{ width: '3%', height: '3%', cursor:'pointer'}} onClick={handleDeleteClick} />
             </div>
-
-            <div className='replyContainer'>{isEditingReplies && <ReplyBox onPost={handlePostReply} />} {/* Display the ReplyBox only when editing */}
-                {replies.map((reply, index) => (
-                    <p key={index}><strong>username: </strong>{reply}</p>
-                ))}
-            </div>
+            {isEditingReplies && <ReplyBox
+                                postId={postId}
+                                userId={user.id} 
+                                onPost={handlePostReply} />} {/* Display the ReplyBox only when editing */}
+            {replies.map((reply, index) => (
+                <p key={index}>{reply}</p>
+            ))}
         </div>
     );
 }

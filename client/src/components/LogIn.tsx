@@ -13,11 +13,15 @@ export function LoginButton() {
           if (user) {
               console.log(user);
               axios.post('http://localhost:8080/user/create', {
+                id: user.uid,
                 email: user.email,
                 name: user.displayName,
               })
               .then(function (response) {
                 console.log(response);
+                if (response.status === 201) {
+                  localStorage.setItem('user', JSON.stringify(user));
+                }
               })
               .catch(function (error) {
                 console.log(error);

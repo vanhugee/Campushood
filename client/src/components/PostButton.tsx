@@ -1,11 +1,16 @@
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import axios from 'axios';
 import React, { useState } from 'react';
 import '../styles/PostButton.css'; // Import the CSS file for the button styling
 
+
+
 interface PostButtonProps {
-    onPost: (title: string, body: string, filter: string) => void; // Update the prop type to accept title, body, and filter
+    userInfo: any;
+    onPost: (title: string, body: string, filter: string) => void; // Update the prop type to accept title and body
 }
 
-export function PostButton({ onPost }: PostButtonProps) {
+export function PostButton({ onPost, userInfo }: PostButtonProps) {
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
     const [filter, setFilter] = useState(''); // State to track selected filter
@@ -14,7 +19,18 @@ export function PostButton({ onPost }: PostButtonProps) {
         onPost(title, body, filter); // Call the onPost function with title, body, and filter
         setTitle(''); // Clear the title input after posting
         setBody(''); // Clear the body input after posting
-        setFilter(''); // Clear the selected filter after posting
+        setFilter(''); // Clear the filter input after posting
+        console.log("PostButton_here", userInfo.uid);
+        axios.post('http://localhost:8080/post/create', {
+            title: title,
+            content: body,
+            userId: userInfo.uid,
+            tag: "TRANSPO"
+        }).then(function (response) {
+            console.log(response);
+        }).catch(function (error) {
+            console.log(error);
+        });
     };
 
     return (
