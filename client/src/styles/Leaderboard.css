@@ -2,7 +2,8 @@
     align-items: center;
     display: inline-block;
     position: fixed;
-    right: 60px;
+    right: 25px;
+    margin-top: 60px;
 }
 
 .leaderboard h2 {

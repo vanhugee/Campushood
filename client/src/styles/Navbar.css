@@ -1,21 +1,28 @@
 /* Navbar.css */
 .navbar {
+    position: fixed; /* Set Navbar to fixed position */
+    top: 0; /* Position Navbar at the top of the screen */
+    left: 0;
+    width: 100%; /* Occupy the full width of the screen */
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: rgb(50, 0, 62);
     color: #fff;
     padding: 10px 20px;
+    z-index: 1000; /* Ensure Navbar appears above other content */
   }
   
   .navbar-logo img {
     height: 50px; /* Adjust based on your logo's size */
+    margin-left: -10px;
   }
   
   .navbar-links {
     list-style: none;
     display: flex;
     gap: 20px;
+    margin-right: 50px;
   }
   
   .navbar-links li a {
@@ -27,6 +34,21 @@
   .navbar-links li a:hover {
     color: #ddd;
   }
+
+  .account-link:hover + .popup-box {
+    display: block;
+  }
+
+  .popup-box {
+    display: none;
+    position: absolute;
+    top: 40px; /* Adjust as needed */
+    left: 0;
+    background-color: #ff0000;
+    padding: 10px;
+    border: 1px solid #00ffcc;
+  }
+
   
   .login-btn {
     background-color: #700089;

@@ -13,6 +13,7 @@ body {
 .container {
     display: inline-block;
     padding-left: 30px;
+    margin-top: 80px;
 }
 .content {
     flex: 1;
@@ -28,7 +29,4 @@ body {
 .sidebarX {
     width: 100px; /* Adjust width as needed */
     display: inline-block;
-    /* Add any other styles you need for the sidebar */
-     /* Add scrollbars when content overflows */
-    max-height: calc(100vh - 60px); /* Adjust as needed; 60px is the height of the navbar */
 }
