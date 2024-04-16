@@ -16,16 +16,17 @@ export function ChatPage({ chatMessages, userInfo }: ChatPageProps) {
     const [fetchedMessages, setFetchedMessages] = useState<Post[]>([]);
     useEffect(() => {
         const fetchData = async () => {
-            axios.get('http://localhost:8080/post/getAll', 
+            await axios.get('http://localhost:8080/post/getAll', 
                 {}).then(function(response) {
-                    setFetchedMessages(response.data.posts);
-                    console.log(fetchedMessages);
+                    console.log(response.data.data.posts);
+                    setFetchedMessages(response.data.data.posts);
                 }).catch(function (error) {
                     console.log(error);
                 });
         };
         fetchData();
-    }, [fetchedMessages]);
+    }, []);
+    console.log(fetchedMessages);
 
     return (
         <div className='chatContainerStyle'>
