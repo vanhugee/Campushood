@@ -1,19 +1,4 @@
-/* import React, { useState } from 'react';
-import { ReplyButton } from './ReplyButton';
-
-export function ReplyBox(){
-    const [replyMessages, setReplyMessages] = useState<{body: string; }[]>([]);
-    const handleReply = (body: string) => {
-        setReplyMessages([...replyMessages, { body }]);
-    };
-    return(
-        <div>
-            <ReplyButton onPost={handleReply}/>
-        </div>
-    );
-}/*  */
 import React, { useState } from 'react';
-import { ReplyButton } from './ReplyButton';
 interface ReplyBoxProps {
     onPost: (reply: string) => void; // Callback function to handle posting a reply
 }

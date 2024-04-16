@@ -1,18 +1,23 @@
 
 import React, { useState } from 'react';
 import '../styles/ChatBox.css';
+import '../styles/ReplyBox.css';
 import editImage from '../assets/edit.png';
 import replyImage from '../assets/reply.png';
 import deleteImage from '../assets/delete.png';
 import { ReplyBox } from './ReplyBox';
+
+
 interface ChatBoxProps {
     initialTitle: string;
     initialBody: string;
+    initialFilter: string;
 }
-export function ChatBox({ initialTitle, initialBody }: ChatBoxProps) {
+export function ChatBox({ initialTitle, initialBody, initialFilter }: ChatBoxProps) {
     const [isEditing, setIsEditing] = useState(false);
     const [editedTitle, setEditedTitle] = useState(initialTitle);
     const [editedBody, setEditedBody] = useState(initialBody);
+    /*const [editedFilter, setEditedFilter] = useState(initialFilter);*/
     const [isHidden, setIsHidden] = useState(false);
     const [replies, setReplies] = useState<string[]>([]); // State for replies
     const [isEditingReplies, setIsEditingReplies] = useState(false);
@@ -26,6 +31,9 @@ export function ChatBox({ initialTitle, initialBody }: ChatBoxProps) {
     const handleEditBodyChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setEditedBody(e.target.value);
     };
+    /*const handleEditFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setEditedFilter(e.target.value);
+    };*/
     const handleEditComplete = () => {
         setIsEditing(false);
     };
@@ -33,7 +41,7 @@ export function ChatBox({ initialTitle, initialBody }: ChatBoxProps) {
         setIsHidden(true);
         console.log("Chat box deleted");
     };
-    const handleReplyEditClick= () => {
+    const handleReplyEditClick = () => {
         setIsEditingReplies(true);
     }
     const handlePostReply = (reply: string) => {
@@ -53,7 +61,7 @@ export function ChatBox({ initialTitle, initialBody }: ChatBoxProps) {
                         onBlur={handleEditComplete}
                     />
                 ) : (
-                    <h1>{editedTitle}</h1>
+                    <h3>{editedTitle}</h3>
                 )}
             </div>
             {isEditing ? (
@@ -66,19 +74,24 @@ export function ChatBox({ initialTitle, initialBody }: ChatBoxProps) {
             ) : (
                 <p>{editedBody}</p>
             )}
-            <div className='userInfoStyle'>
-                <h2>Poster: testemail@davidson.edu</h2>
-                <h2>Time Posted: --:--</h2>
+
+            <div className='extraInfoStyle'>
+                <h2>testemail@davidson.edu &nbsp; | &nbsp; </h2>
+                <h2>--:-- &nbsp; | &nbsp; </h2>
+                <h2>{initialFilter} </h2>
+
             </div>
             <div className='chatFunctionalities'>
                 <img src={editImage} alt="Edit Image" style={{ width: '3%', height: '3%' }} onClick={handleEditClick} />
                 <img src={replyImage} alt="Reply Image" style={{ width: '3%', height: '3%' }} onClick={handleReplyEditClick} />
                 <img src={deleteImage} alt="Delete Image" style={{ width: '3%', height: '3%' }} onClick={handleDeleteClick} />
             </div>
-            {isEditingReplies && <ReplyBox onPost={handlePostReply} />} {/* Display the ReplyBox only when editing */}
-            {replies.map((reply, index) => (
-                <p key={index}>{reply}</p>
-            ))}
+
+            <div className='replyContainer'>{isEditingReplies && <ReplyBox onPost={handlePostReply} />} {/* Display the ReplyBox only when editing */}
+                {replies.map((reply, index) => (
+                    <p key={index}>{"username: " + reply}</p>
+                ))}
+            </div>
         </div>
     );
 }

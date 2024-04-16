@@ -18,9 +18,13 @@
     margin: 0;
 }
 
-.userInfoStyle {
+
+.extraInfoStyle {
     text-align: right;
     font-size: 10px;
+}
+.extraInfoStyle h2{
+    display: inline-block;
 }
 
 .chatFunctionalities {

@@ -12,7 +12,7 @@ body {
     padding: 0;
 }
 .container {
-    display: flex;
+    display: inline-block;
 }
 .content {
     flex: 1;
@@ -30,9 +30,10 @@ body {
     top: 10px;
     right: 10px;
 }
-.sidebar {
-    width: 10px; /* Adjust width as needed */
+.sidebarX {
+    width: 100px; /* Adjust width as needed */
+    display: inline-block;
     /* Add any other styles you need for the sidebar */
-    overflow-y: auto; /* Add scrollbars when content overflows */
+     /* Add scrollbars when content overflows */
     max-height: calc(100vh - 60px); /* Adjust as needed; 60px is the height of the navbar */
 }

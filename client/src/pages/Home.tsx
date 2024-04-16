@@ -6,17 +6,18 @@ import { ChatPage } from '../components/ChatPage'
 import { UserPoints } from '../components/UserPoints'
 import '../styles/Home.css'
 export function Home() {
-    const [chatMessages, setChatMessages] = useState<{ title: string; body: string; }[]>([]);
-    const handlePost = (title: string, body: string) => {
-        setChatMessages([...chatMessages, { title, body }]);
+    const [chatMessages, setChatMessages] = useState<{ title: string; body: string; filter: string}[]>([]);
+    const handlePost = (title: string, body: string, filter: string) => {
+        setChatMessages([...chatMessages, { title, body, filter }]);
     };
     return (
         <div>
             <Navbar />
-            <div className="container">
-                <div >
+            <section className="sidebarX">
                     <Sidebar />
-                </div>
+            </section>
+            <div className="container">
+                
                 <div className="content">
                     <div className="topRight">
                         <UserPoints/>
