@@ -6,7 +6,7 @@ import editImage from '../assets/edit.png';
 import replyImage from '../assets/reply.png';
 import deleteImage from '../assets/delete.png';
 import { ReplyBox } from './ReplyBox';
-import { User } from '@prisma/client';
+import { User, Reply } from '@prisma/client';
 
 interface ChatBoxProps {
     user: User;
@@ -15,8 +15,9 @@ interface ChatBoxProps {
     initialTitle: string;
     initialBody: string;
     initialFilter: string;
+    repliesData: Reply[];
 }
-export function ChatBox({ user, timeDiff, postId, initialTitle, initialBody }: ChatBoxProps) {
+export function ChatBox({ user, timeDiff, postId, initialTitle, initialBody, repliesData}: ChatBoxProps) {
     const [isEditing, setIsEditing] = useState(false);
     const [editedTitle, setEditedTitle] = useState(initialTitle);
     const [editedBody, setEditedBody] = useState(initialBody);
@@ -90,8 +91,8 @@ export function ChatBox({ user, timeDiff, postId, initialTitle, initialBody }: C
                                 postId={postId}
                                 userId={user.id} 
                                 onPost={handlePostReply} />} {/* Display the ReplyBox only when editing */}
-            {replies.map((reply, index) => (
-                <p key={index}>{reply}</p>
+            {repliesData.map((reply, index) => (
+                <p key={index}>{reply.content}</p>
             ))}
         </div>
     );

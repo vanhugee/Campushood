@@ -54,10 +54,10 @@ export function ChatPage({ chatMessages, userInfo }: ChatPageProps) {
                             postId={message.id}
                             initialTitle={message.title} 
                             initialBody={message.content}
+                            repliesData={message.replies}
                             initialFilter='FOOD' />
                 ))}
             </div> 
-    
         </div>
     );
 }
