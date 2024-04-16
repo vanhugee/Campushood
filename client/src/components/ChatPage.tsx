@@ -27,12 +27,15 @@ interface PostData {
 
 export function ChatPage({ chatMessages, userInfo }: ChatPageProps) {
     const [fetchedMessages, setFetchedMessages] = useState<PostData[]>([]);
+    const [timeArray, setTimeArray] = useState<string[]>([]);
     useEffect(() => {
         const fetchData = async () => {
             await axios.get('http://localhost:8080/post/getAll', 
                 {}).then(function(response) {
+                    console.log(response.data.data.timeArray);
                     console.log(response.data.data.posts);
                     setFetchedMessages(response.data.data.posts);
+                    setTimeArray(response.data.data.timeArray);
                 }).catch(function (error) {
                     console.log(error);
                 });
@@ -48,9 +51,10 @@ export function ChatPage({ chatMessages, userInfo }: ChatPageProps) {
                 ))}
             </div> */}
             <div className='chatBoxContainerStyle'>
-                {fetchedMessages && fetchedMessages.map((message, index) => (
+                {fetchedMessages && timeArray && fetchedMessages.map((message, index) => (
                     <ChatBox key={index}
-                            userInfo={message.user} 
+                            timeDiff={timeArray[index]}
+                            user={message.user} 
                             initialTitle={message.title} 
                             initialBody={message.content} />
                 ))}

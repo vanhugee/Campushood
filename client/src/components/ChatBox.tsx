@@ -9,11 +9,12 @@ import { User } from '@prisma/client';
 import { userInfo } from 'os';
 
 interface ChatBoxProps {
-    userInfo: User;
+    user: User;
+    timeDiff: string;
     initialTitle: string;
     initialBody: string;
 }
-export function ChatBox({ userInfo, initialTitle, initialBody }: ChatBoxProps) {
+export function ChatBox({ user, timeDiff, initialTitle, initialBody }: ChatBoxProps) {
     const [isEditing, setIsEditing] = useState(false);
     const [editedTitle, setEditedTitle] = useState(initialTitle);
     const [editedBody, setEditedBody] = useState(initialBody);
@@ -71,8 +72,8 @@ export function ChatBox({ userInfo, initialTitle, initialBody }: ChatBoxProps) {
                 <p>{editedBody}</p>
             )}
             <div className='userInfoStyle'>
-                <h2>Poster: {userInfo.email}</h2>
-                <h2>Time Posted: --:--</h2>
+                <h2>Poster: {user.email}</h2>
+                <h2>Time: {timeDiff}</h2>
             </div>
             <div className='chatFunctionalities'>
                 <img src={editImage} alt="Edit Image" style={{ width: '3%', height: '3%' }} onClick={handleEditClick} />
