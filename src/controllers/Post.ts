@@ -31,6 +31,9 @@ const getAllPosts = async (req: Request, res: Response) => {
         const posts = await prisma.post.findMany({
             orderBy: {
                 createdAt: 'desc'
+            },
+            include: {
+                user: true
             }
         });
         let timeArray = [];
