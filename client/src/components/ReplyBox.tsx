@@ -28,6 +28,7 @@ export function ReplyBox({ postId, userId, onPost }: ReplyBoxProps) {
         }).catch(function (error) {
             console.log(error);
         });
+        window.location.reload();
     };
     return (
         <div className="replyContainer">

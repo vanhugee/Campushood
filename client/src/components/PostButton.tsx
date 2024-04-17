@@ -1,7 +1,7 @@
-import { getAuth, onAuthStateChanged } from "firebase/auth";
 import axios from 'axios';
 import React, { useState } from 'react';
 import '../styles/PostButton.css'; // Import the CSS file for the button styling
+
 
 
 
@@ -46,6 +46,8 @@ export function PostButton({ onPost, userInfo }: PostButtonProps) {
         }).catch(function (error) {
             console.log(error);
         });
+        window.location.reload();
+
     };
 
     return (
