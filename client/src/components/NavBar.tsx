@@ -15,7 +15,7 @@ const Navbar = () => {
         <Toolbar className="navbar">
           
             <a href="/">
-              <img src={campushoodLogo} alt="Campushood Logo" style={{ width: '80%', height: '80%' }} />
+              <img src={campushoodLogo} alt="Campushood Logo" style={{ width: '80%', height: '80%', paddingTop: '15px'}} />
             </a>
           
 
