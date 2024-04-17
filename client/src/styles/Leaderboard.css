@@ -11,6 +11,8 @@
     
 }
 
+  
+
 .leaderboard h2 {
     border: 2px solid rgb(255, 255, 255); /* Add a black border */
     padding: 10px; /* Add some padding for spacing */
@@ -20,6 +22,7 @@
 .leaderboard span {
     margin-right: 10px; /* Adjust the value as needed */
     margin-left: 10px;
+    padding: auto;
   }
 
 .leaderboard hr {

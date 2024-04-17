@@ -8,14 +8,15 @@
   color: #fff;
   box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1);
   min-width: 50px;
+  transition: 0.5s;
 
 }
 
 
 .sidebar-links {
   list-style-type: none;
-  padding-left: 10px;
   width: 100%;
+  padding-left: 10px;
   
   
 }
@@ -26,6 +27,7 @@
   color: #fff;
   text-decoration: none;
   transition: background-color 0.3s ease;
+  
   
 }
 

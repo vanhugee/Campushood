@@ -27,22 +27,23 @@ export function Home() {
         { id: '2', name: 'Bob', points: 300 },
 
     ];
+    
 
     return (
         
          
             <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} style={{backgroundColor: 'rgb(203, 195, 227)'}}>
-                <Grid item xs={12}>
+                <Grid item xs={12} md ={12}>
                     <Navbar />
                 </Grid>
-                <Grid item xs={1.5} className='sidebar'>
+                <Grid item xs={1} md ={1.5} className='sidebar'>
                     <Sidebar />
                 </Grid>
-                <Grid item xs={8}>
+                <Grid item xs={11} md ={8}>
                     <PostButton userInfo={ userData } onPost={handlePost} />
                     <ChatPage userInfo={ userData } chatMessages={chatMessages} />
                 </Grid>
-                <Grid item xs={2.5}>
+                <Grid item xs={12} md ={2.5}>
                     <Leaderboard users={users} />
                 </Grid>
     
