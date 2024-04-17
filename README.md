@@ -16,6 +16,33 @@ CampusHood was born out of the challenges faced by international students on U.S
 - Database: PostgreSQL
 - Language: Typescript
 
+## 🔨 Installation
+### Prerequisites
+- Node.js installed
+- A SQL database server running (PostgreSQL recommended)
+### Installation steps
+- Create a `.env` file in the `campushood` directory and set up the database connection URL
+```bash
+DATABASE_URL="YOUR_DATABASE_URL"
+```
+- In the `campushood` directory, install all the dependencies
+```bash
+$ npm install
+```
+- Start the backend server
+```bash
+$ npm start
+```
+- Navigate to the `client` directory, install all the dependencies
+```bash
+$ npm install
+```
+- Start the frontend server
+```bash
+$ npm start
+```
+
+
 
 
 
