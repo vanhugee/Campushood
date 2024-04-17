@@ -20,12 +20,20 @@ export function PostButton({ onPost, userInfo }: PostButtonProps) {
         setTitle(''); // Clear the title input after posting
         setBody(''); // Clear the body input after posting
         setFilter(''); // Clear the filter input after posting
-        console.log("PostButton_here", userInfo.uid);
+        console.log("PostButton_here", filter);
+        let tag = "";
+        if (filter === "Food") {
+            tag = "FOOD";
+        } else if (filter === "Transportation") {
+            tag = "TRANSPO";
+        } else if (filter === "Miscellaneous") {
+            tag = "MISC";
+        }
         axios.post('http://localhost:8080/post/create', {
             title: title,
             content: body,
             userId: userInfo.uid,
-            tag: "TRANSPO"
+            tag: tag
         }).then(function (response) {
             console.log(response);
         }).catch(function (error) {

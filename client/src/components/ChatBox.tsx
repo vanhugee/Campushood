@@ -1,5 +1,4 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/ChatBox.css';
 import '../styles/ReplyBox.css';
 import editImage from '../assets/edit.png';
@@ -23,7 +22,7 @@ export function ChatBox({ user, timeDiff, postId, initialTitle, initialBody, rep
     const [editedBody, setEditedBody] = useState(initialBody);
     /*const [editedFilter, setEditedFilter] = useState(initialFilter);*/
     const [isHidden, setIsHidden] = useState(false);
-    const [replies, setReplies] = useState<string[]>([]); // State for replies
+    const [replies, setReplies] = useState(''); // State for replies
     const [isEditingReplies, setIsEditingReplies] = useState(false);
 
     const handleEditClick = () => {
@@ -45,12 +44,16 @@ export function ChatBox({ user, timeDiff, postId, initialTitle, initialBody, rep
         setIsHidden(true);
         console.log("Chat box deleted");
     };
+    
     const handleReplyEditClick = () => {
         setIsEditingReplies(true);
     }
     const handlePostReply = (reply: string) => {
-        setReplies([...replies, reply]); // Add new reply to replies array
+        setReplies(reply); // Add new reply to replies array
     };
+    useEffect(() => {
+    }, [replies]);
+    
     if (isHidden) {
         return null; // Return null to hide the chat box
     }
