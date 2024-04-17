@@ -15,9 +15,8 @@ interface ChatBoxProps {
     initialBody: string;
     initialFilter: string;
     repliesData: Reply[];
-    repliesData: Reply[];
 }
-export function ChatBox({ user, timeDiff, postId, initialTitle, initialBody, repliesData}: ChatBoxProps) {
+
 export function ChatBox({ user, timeDiff, postId, initialTitle, initialBody, repliesData}: ChatBoxProps) {
     const [isEditing, setIsEditing] = useState(false);
     const [editedTitle, setEditedTitle] = useState(initialTitle);

@@ -48,7 +48,6 @@ export function ChatPage({ chatMessages, userInfo }: ChatPageProps) {
                             initialTitle={message.title}
                             initialBody={message.content}
                             repliesData={message.replies}
-
                             initialFilter='FOOD' />
                 ))}
             </div> 
