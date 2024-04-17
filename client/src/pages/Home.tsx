@@ -20,16 +20,6 @@ export function Home() {
         setChatMessages([...chatMessages, { title, body, filter }]);
     };
 
-    const users = [
-        { id: 1, name: 'Alice', points: 200 },
-        { id: 2, name: 'Bob', points: 300 },
-        { id: 3, name: 'Charlie', points: 150 },
-        { id: 2, name: 'Bob', points: 300 },
-        { id: 3, name: 'Charlie', points: 150 },
-        { id: 2, name: 'Bob', points: 300 },
-        { id: 3, name: 'Charlie', points: 150 },
-      ];
-
     return (
         <div className='homeStyle'>
             <Navbar />
@@ -50,7 +40,7 @@ export function Home() {
                     </div>
                 </div>
             </div>
-            <Leaderboard users={users} />
+            <Leaderboard />
         </div>
     );
 }

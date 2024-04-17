@@ -49,13 +49,31 @@ const getUser = async (req: Request, res: Response) => {
   }
 }
 
+// get all users
+const getAllUsers = async (req: Request, res: Response) => {
+  try {
+    const users = await prisma.user.findMany();
+    res.status(200).json({message: "All users fetched successfully", data: users, 
+    orderBy: {
+      points: 'desc'
+    }});
+  } catch (error) {
+    if (error instanceof Error) {
+      res.status(400).json({ error: error.message })
+    } 
+    else {
+      res.status(400).json({ error: "An unknown error occurred" })
+    };
+  }
+}
+
 // Update user points
 const updateUserPoints = async (req: Request, res: Response) => {
   try {
-    const {email, points} = req.body;
+    const {id, points} = req.body;
     const updatedUser = await prisma.user.update({
       where: {
-        email: email,
+        id: id,
       },
       data: {
         points: {
@@ -100,5 +118,6 @@ const getUserPosts = async (req: Request, res: Response) => {
 
 export {createUser, 
         getUser,
+        getAllUsers,
         getUserPosts, 
         updateUserPoints};

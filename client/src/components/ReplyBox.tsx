@@ -17,6 +17,14 @@ export function ReplyBox({ postId, userId, onPost }: ReplyBoxProps) {
             content: reply
         }).then(function (response) {
             console.log(response);
+            axios.put('http://localhost:8080/user/update', {
+                id: userId,
+                points: 2
+            }).then(function (response) {
+                console.log(response);
+            }).catch(function (error) {
+                console.log(error);
+            })
         }).catch(function (error) {
             console.log(error);
         });

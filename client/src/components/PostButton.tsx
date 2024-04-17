@@ -35,7 +35,14 @@ export function PostButton({ onPost, userInfo }: PostButtonProps) {
             userId: userInfo.uid,
             tag: tag
         }).then(function (response) {
-            console.log(response);
+            axios.put('http://localhost:8080/user/update', {
+                id: userInfo.uid,
+                points: 5
+            }).then(function (response) {
+                console.log(response);
+            }).catch(function (error) {
+                console.log(error);
+            })
         }).catch(function (error) {
             console.log(error);
         });
