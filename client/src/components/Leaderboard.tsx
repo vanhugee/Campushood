@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/Leaderboard.css'
 
 interface User {
-  id: number;
+  id: string;
   name: string;
   points: number;
 }
@@ -19,7 +19,7 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ users }) => {
 
   return (
     <div className="leaderboard">
-      <h2>Leaderboard</h2>
+      <h2>Top Users</h2>
       <ol>
         {sortedUsers.map((user, index) => (
           <li key={user.id}>

@@ -4,7 +4,7 @@ import '../styles/ChatPage.css';
 import axios from 'axios';
 import { response } from 'express';
 import { useState, useEffect } from 'react';
-import { Post, Reply, User } from '@prisma/client';
+import { User, Reply, Post  } from '@prisma/client';
 interface ChatPageProps {
     chatMessages: { title: string; body: string; filter: string }[]; // Define chatMessages prop
     userInfo: any;

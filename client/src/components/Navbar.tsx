@@ -4,6 +4,7 @@ import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
+import user from '../assets/user.png'
 
 
 const Navbar = () => {
@@ -19,8 +20,7 @@ const Navbar = () => {
           
 
           <ul className="navbar-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/">Account</a></li>
+            <li className="login-btn"><img src={user} alt="user icon" style={{ float:'left', width: '25px', marginRight: '10px', display: 'inline-block' }} /><a href="/">My Account</a></li>
           </ul>
           
         </Toolbar>

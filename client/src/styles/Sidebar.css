@@ -6,7 +6,7 @@
   width: 100%;
   background-color: rgb(50, 0, 62);
   color: #fff;
-  box-shadow: inset;
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1);
   min-width: 50px;
 
 }
@@ -14,7 +14,7 @@
 
 .sidebar-links {
   list-style-type: none;
-  padding: 0;
+  padding-left: 10px;
   width: 100%;
   
   

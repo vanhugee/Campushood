@@ -7,7 +7,6 @@ import replyImage from '../assets/reply.png';
 import deleteImage from '../assets/delete.png';
 import { ReplyBox } from './ReplyBox';
 import { User, Reply } from '@prisma/client';
-
 interface ChatBoxProps {
     user: User;
     postId: number;
@@ -17,7 +16,7 @@ interface ChatBoxProps {
     initialFilter: string;
     repliesData: Reply[];
 }
-export function ChatBox({ user, timeDiff, postId, initialTitle, initialBody, repliesData }: ChatBoxProps) {
+export function ChatBox({ user, timeDiff, postId, initialTitle, initialBody, repliesData}: ChatBoxProps) {
     const [isEditing, setIsEditing] = useState(false);
     const [editedTitle, setEditedTitle] = useState(initialTitle);
     const [editedBody, setEditedBody] = useState(initialBody);
@@ -25,7 +24,6 @@ export function ChatBox({ user, timeDiff, postId, initialTitle, initialBody, rep
     const [isHidden, setIsHidden] = useState(false);
     const [replies, setReplies] = useState<string[]>([]); // State for replies
     const [isEditingReplies, setIsEditingReplies] = useState(false);
-
     const handleEditClick = () => {
         setIsEditing(true);
     };
@@ -84,16 +82,16 @@ export function ChatBox({ user, timeDiff, postId, initialTitle, initialBody, rep
                 <h2>Time: {timeDiff}</h2>
             </div>
             <div className='chatFunctionalities'>
-                <img src={editImage} alt="Edit Image" style={{ width: '3%', height: '3%', cursor: 'pointer' }} onClick={handleEditClick} />
-                <img src={replyImage} alt="Reply Image" style={{ width: '3%', height: '3%', cursor: 'pointer' }} onClick={handleReplyEditClick} />
-                <img src={deleteImage} alt="Delete Image" style={{ width: '3%', height: '3%', cursor: 'pointer' }} onClick={handleDeleteClick} />
+                <img src={editImage} alt="Edit Image" style={{ width: '3%', height: '3%', cursor: 'pointer'  }} onClick={handleEditClick} />
+                <img src={replyImage} alt="Reply Image" style={{ width: '3%', height: '3%', cursor: 'pointer'  }} onClick={handleReplyEditClick} />
+                <img src={deleteImage} alt="Delete Image" style={{ width: '3%', height: '3%', cursor: 'pointer'  }} onClick={handleDeleteClick} />
             </div>
             {isEditingReplies && <ReplyBox
-                postId={postId}
-                userId={user.id}
-                onPost={handlePostReply} />} {/* Display the ReplyBox only when editing */}
-            {replies.map((reply, index) => (
-                <p key={index}>{reply}</p>
+                                postId={postId}
+                                userId={user.id.toString()}
+                                onPost={handlePostReply} />} {/* Display the ReplyBox only when editing */}
+            {repliesData.map((reply, index) => (
+                <p key={index}>{reply.content}</p>
             ))}
         </div>
     );

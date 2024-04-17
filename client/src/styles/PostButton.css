@@ -7,6 +7,7 @@
     width: fit-content;
     border-radius: 10px;
     margin-top: 10px;
+    box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1);
 }
 
   .postContainer input[type="text"] {
@@ -32,5 +33,6 @@
     border: none;
     cursor: pointer;
     border-radius: 10px;
+    transition: background-color 0.3s ease;
     
   }

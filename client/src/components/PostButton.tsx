@@ -37,14 +37,14 @@ export function PostButton({ onPost, userInfo }: PostButtonProps) {
         <div className="postContainer">
             <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title" />
             <select value={filter} onChange={(e) => setFilter(e.target.value)}>
-                <option value="">Select Filter</option>
+                <option value="">Select Category</option>
                 <option value="Food">Food</option>
                 <option value="Transportation">Transportation</option>
                 <option value="Miscellaneous">Miscellaneous</option>
                 {/* Add more options as needed */}
             </select>
-            <input type="text" value={body} onChange={(e) => setBody(e.target.value)} placeholder="Body" />
-            <button onClick={handleClick}>Post</button>
+            <input type="text" value={body} onChange={(e) => setBody(e.target.value)} placeholder="Write a short description..." />
+            <button onClick={handleClick}>Create Post</button>
         </div>
     );
 }

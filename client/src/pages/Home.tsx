@@ -8,7 +8,6 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 import '../styles/Home.css'
 import Grid from '@mui/material/Grid';
-import background2 from '../assets/purplebg.jpg'
 
 
 export function Home() {
@@ -24,13 +23,9 @@ export function Home() {
     };
 
     const users = [
-        { id: 1, name: 'Alice', points: 200 },
-        { id: 2, name: 'Bob', points: 300 },
-        { id: 3, name: 'Charlie', points: 150 },
-        { id: 2, name: 'Bob', points: 300 },
-        { id: 3, name: 'Charlie', points: 150 },
-        { id: 2, name: 'Bob', points: 300 },
-        { id: 3, name: 'Charlie', points: 150 },
+        { id: '1', name: 'Alice', points: 200 },
+        { id: '2', name: 'Bob', points: 300 },
+
     ];
 
     return (
