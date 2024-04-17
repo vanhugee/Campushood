@@ -52,11 +52,13 @@ const getUser = async (req: Request, res: Response) => {
 // get all users
 const getAllUsers = async (req: Request, res: Response) => {
   try {
-    const users = await prisma.user.findMany();
+    const users = await prisma.user.findMany({
+      orderBy: {
+        points: 'desc'
+      }
+    });
     res.status(200).json({message: "All users fetched successfully", data: users, 
-    orderBy: {
-      points: 'desc'
-    }});
+    });
   } catch (error) {
     if (error instanceof Error) {
       res.status(400).json({ error: error.message })
