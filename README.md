@@ -41,7 +41,7 @@ $ npm install
 ```bash
 $ npm start
 ```
-
+Additional scripts for the client can be found in the `README.md` file in the `client` directory
 
 
 
