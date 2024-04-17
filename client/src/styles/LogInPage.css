@@ -1,3 +1,4 @@
+
 .LogInPageWrapper {
     position: relative;
     color: rgb(238, 239, 234); /* Set text color */
@@ -20,6 +21,7 @@
     font-size: 4.3rem;
     margin: 0;
     padding: 0;
+    text-shadow: 5rem;
   }
   
   .LogInPageWrapper h3 {

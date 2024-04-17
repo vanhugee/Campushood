@@ -1,20 +1,24 @@
 /* Sidebar.css */
 .sidebar {
-  position: fixed;
-  left: 0;
-  top: 55px;
-  bottom: 0;
-  width: 1%;
-  min-width: 110px;
+  display: flex;
+  bottom: 0px;
+  height: auto;
+  width: 100%;
   background-color: rgb(50, 0, 62);
   color: #fff;
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1);
+  min-width: 50px;
+  transition: 0.5s;
 
 }
 
 
 .sidebar-links {
   list-style-type: none;
-  padding: 0;
+  width: 100%;
+  padding-left: 10px;
+  
+  
 }
 
 .sidebar-links li a {
@@ -23,6 +27,8 @@
   color: #fff;
   text-decoration: none;
   transition: background-color 0.3s ease;
+  
+  
 }
 
 .sidebar-links li a:hover {

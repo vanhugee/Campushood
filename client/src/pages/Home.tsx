@@ -7,6 +7,8 @@ import Leaderboard from '../components/Leaderboard'
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 import '../styles/Home.css'
+import Grid from '@mui/material/Grid';
+
 
 export function Home() {
     const [chatMessages, setChatMessages] = useState<{ title: string; body: string; filter: string }[]>([]);
@@ -21,26 +23,24 @@ export function Home() {
     };
 
     return (
-        <div className='homeStyle'>
-            <Navbar />
-            <section className="sidebarX">
+        
+         
+            <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} style={{backgroundColor: 'rgb(203, 195, 227)'}}>
+                <Grid item xs={12} md ={12}>
+                    <Navbar />
+                </Grid>
+                <Grid item xs={1} md ={1.5} className='sidebar'>
                     <Sidebar />
-            </section>
-            <div className="container"> 
-                <div className="content">
-                    <div className="centered">
-                        <PostButton
-                        userInfo={ userData } 
-                        onPost={handlePost} />
-                    </div>
-                    <div className='homeStyle'>
-                        <ChatPage 
-                            userInfo={ userData }
-                            chatMessages={chatMessages} />
-                    </div>
-                </div>
-            </div>
-            <Leaderboard />
-        </div>
-    );
-}
+                </Grid>
+                <Grid item xs={11} md ={8}>
+                    <PostButton userInfo={ userData } onPost={handlePost} />
+                    <ChatPage userInfo={ userData } chatMessages={chatMessages} />
+                </Grid>
+                <Grid item xs={12} md ={2.5}>
+                    <Leaderboard />
+                </Grid>
+    
+            </Grid>
+    
+        );
+    }
