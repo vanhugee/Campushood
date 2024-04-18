@@ -28,7 +28,14 @@ const createPost = async (req: Request, res: Response) => {
 //Get all posts - in descending order of creation
 const getAllPosts = async (req: Request, res: Response) => {
     try {
+        let postTag = req.query.postTag as string || undefined;
+        if (postTag === "ALL") {
+            postTag = undefined;
+        }
         const posts = await prisma.post.findMany({
+            where: {
+                tags: postTag
+            },
             orderBy: {
                 createdAt: 'desc'
             },
