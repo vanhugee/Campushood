@@ -6,6 +6,7 @@ import replyImage from '../assets/reply.png';
 import deleteImage from '../assets/delete.png';
 import { ReplyBox } from './ReplyBox';
 import { User, Reply } from '@prisma/client';
+import axios from 'axios';
 
 interface ChatBoxProps {
     user: User;
@@ -42,6 +43,15 @@ export function ChatBox({ user, timeDiff, postId, initialTitle, initialBody, rep
     const handleDeleteClick = () => {
         setIsHidden(true);
         console.log("Chat box deleted");
+        axios.delete('http://localhost:8080/post/delete', {
+            params: {
+                postId: postId
+            }
+        }).then(function (response) {
+            console.log(response);
+        }).catch(function (error) {
+            console.log(error);
+        });
     };
     
     const handleReplyEditClick = () => {
