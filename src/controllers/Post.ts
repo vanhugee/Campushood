@@ -41,14 +41,19 @@ const getAllPosts = async (req: Request, res: Response) => {
             },
             include: {
                 user: true,
-                replies: true
-            }
+                replies: {
+                  include: {
+                    user: true
+                  }
+                }
+              }
         });
         let timeArray = [];
         for (let i = 0; i < posts.length; i++) {
             let timeDiff = formatTime(posts[i].createdAt);
             timeArray.push(timeDiff);
         }
+        console.log(posts);
         res.status(200).json({message: "All posts fetched successfully", data: {posts, timeArray}});
     } catch (error) {
         if (error instanceof Error) {

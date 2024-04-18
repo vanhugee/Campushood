@@ -31,8 +31,7 @@ export function ChatPage({ chatMessages, userInfo, postTag }: ChatPageProps) {
                 {params: {
                     postTag: postTag
                 }}).then(function(response) {
-                    console.log(response.data.data.timeArray);
-                    console.log(response.data.data.posts);
+                    console.log(response.data.data.posts, postTag);
                     setFetchedMessages(response.data.data.posts);
                     setTimeArray(response.data.data.timeArray);
                 }).catch(function (error) {
@@ -52,7 +51,7 @@ export function ChatPage({ chatMessages, userInfo, postTag }: ChatPageProps) {
                             initialTitle={message.title}
                             initialBody={message.content}
                             repliesData={message.replies}
-                            initialFilter='FOOD' />
+                            />
                 ))}
             </div> 
         </div>

@@ -21,10 +21,10 @@ export function Home() {
     console.log(postTag);
 
     const navigate = useNavigate();
-    if (!localStorage.getItem('user')) {
+    if (!sessionStorage.getItem('user')) {
         navigate('/login');
     }
-    const userData = JSON.parse(localStorage.getItem('user')!);
+    const userData = JSON.parse(sessionStorage.getItem('user')!);
 
     const handlePost = (title: string, body: string, filter: string) => {
         setChatMessages([...chatMessages, { title, body, filter }]);
