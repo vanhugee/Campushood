@@ -30,6 +30,14 @@ DATABASE_URL="YOUR_DATABASE_URL"
 ```bash
 $ npm install
 ```
+- Invoke the Prisma CLI
+```bash
+$ npx prisma
+```
+- Migrate data model to the database schema
+```bash
+$ npx prisma migrate dev --name init
+```
 - Start the backend server
 ```bash
 $ npm start
