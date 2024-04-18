@@ -13,8 +13,7 @@ interface ChatBoxProps {
     timeDiff: string;
     initialTitle: string;
     initialBody: string;
-    initialFilter: string;
-    repliesData: Reply[];
+    repliesData: any[];
 }
 
 export function ChatBox({ user, timeDiff, postId, initialTitle, initialBody, repliesData}: ChatBoxProps) {
@@ -69,7 +68,7 @@ export function ChatBox({ user, timeDiff, postId, initialTitle, initialBody, rep
                         onBlur={handleEditComplete}
                     />
                 ) : (
-                    <h3>{editedTitle}</h3>
+                    <h3>{initialTitle}</h3>
                 )}
             </div>
             {isEditing ? (
@@ -80,7 +79,7 @@ export function ChatBox({ user, timeDiff, postId, initialTitle, initialBody, rep
                     onBlur={handleEditComplete}
                 />
             ) : (
-                <p>{editedBody}</p>
+                <p>{initialBody}</p>
             )}
             <div className='userInfoStyle'>
                 <h2>Poster: {user.email}</h2>
@@ -96,7 +95,7 @@ export function ChatBox({ user, timeDiff, postId, initialTitle, initialBody, rep
                                 userId={user.id.toString()}
                                 onPost={handlePostReply} />} {/* Display the ReplyBox only when editing */}
             {repliesData.map((reply, index) => (
-                <p key={index}>{reply.content}</p>
+                <p key={index}>{reply.user.email}: {reply.content}</p>
             ))}
         </div>
     );
