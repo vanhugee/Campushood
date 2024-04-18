@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import userRouter from './routes/userRoutes';
 import postRouter from './routes/postRoutes';
-import { start } from 'repl';
+import replyRouter from './routes/replyRoutes';
 import 'dotenv/config'
 
 // Set up the express app
@@ -13,6 +13,7 @@ app.use(cors());
 // Set up routes
 app.use('/user', userRouter);
 app.use('/post', postRouter);
+app.use('/reply', replyRouter);
 
 const PORT = process.env.PORT || 5000;
 const startServer = async () => {

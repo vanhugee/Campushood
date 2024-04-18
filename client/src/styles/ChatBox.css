@@ -1,0 +1,38 @@
+.chatBoxStyle {
+    min-width: 400px;
+    max-width: 1000px;
+    background-color: purple;
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.headerStyle {
+    border-bottom: 2px solid white;
+    border-top: 2px solid white;
+    border-right: 2px solid white;
+    border-left: 2px solid white;
+    text-align: center;
+    margin: 0;
+}
+
+
+.extraInfoStyle {
+    text-align: right;
+    font-size: 10px;
+}
+.extraInfoStyle h2{
+    display: inline-block;
+}
+
+.chatFunctionalities {
+    text-align: left;
+    display: flex;
+}
+
+.chatFunctionalities img {
+    margin-right: 10px; /* Adjust the spacing between images as needed */
+}

@@ -1,0 +1,11 @@
+.pointsContainerStyle {
+    position: relative;
+    display: inline-block;
+    border-radius: 5px;
+    color: rgb(0, 0, 0);
+}
+
+.pointsTextStyle {
+    font-size: 16px;
+    font-weight: bold;
+}

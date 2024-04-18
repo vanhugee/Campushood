@@ -1,0 +1,26 @@
+.replyContainer {
+    display: inline-block;
+    flex-direction: column;
+    align-items: left;
+    width: 100%;
+    padding: 10px;
+    border: 1px white;
+    border-radius: 10px;
+}
+.replyContainer input[type="text"] {
+    width: calc(80% - 70px);
+    padding: 8px;
+    border-radius: 10px;
+    
+  }
+
+  .replyContainer button {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: #5e4caf;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    
+  }

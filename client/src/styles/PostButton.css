@@ -1,0 +1,39 @@
+.postContainer {
+    display: inline-block;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background-color: rgb(73, 0, 92);
+    width: fit-content;
+    border-radius: 10px;
+    margin-top: 10px;
+    box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+  .postContainer input[type="text"] {
+    width: calc(80% - 70px);
+    padding: 8px;
+    margin: 10px;
+    border-radius: 10px;
+    
+  }
+  .postContainer  select{
+    padding: 8px 20px;
+    background-color: #5e4caf;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    
+  }
+  .postContainer button {
+    padding: 8px 20px;
+    background-color: #5e4caf;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    
+    
+  }

@@ -1,0 +1,62 @@
+/* Navbar.css */
+.navbar {
+
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(50, 0, 62);
+    color: #fff;
+    z-index: 102;
+    position: sticky;
+    
+    
+  }
+  .navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin-right: 50px;
+  }
+  
+  .navbar-links li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-links li a:hover {
+    color: #ddd;
+  }
+
+  .account-link:hover + .popup-box {
+    display: block;
+  }
+
+  
+  .login-btn {
+    background-color: #700089;
+    color: #fff;
+    border: 1px solid white;
+    padding: 5px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+  }
+  
+  .login-btn:hover {
+    background-color:  #430152;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+    }
+  
+    .navbar-links {
+      margin-top: 10px;
+    }
+  
+    .login-btn {
+      margin-top: 10px;
+    }
+}

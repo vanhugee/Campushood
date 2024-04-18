@@ -1,0 +1,36 @@
+.leaderboard {
+    align-items: center;
+    display: inline-block;
+    position: relative;
+    border-radius: 10px;
+    border-color: white;
+    color: white;
+    background-color:  rgb(127, 0, 136);
+    padding: 0 10px 0px 10px;
+    box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1);
+    
+}
+
+  
+
+.leaderboard h2 {
+    border: 2px solid rgb(255, 255, 255); /* Add a black border */
+    padding: 10px; /* Add some padding for spacing */
+    text-align: center;
+}
+
+.leaderboard span {
+    margin-right: 10px; /* Adjust the value as needed */
+    margin-left: 10px;
+    padding: auto;
+  }
+
+.leaderboard hr {
+    border: none;
+    border-bottom: 1px solid rgb(255, 255, 255); /* Customize the border style */
+    
+}
+
+.leaderboard .points {
+    float: right;
+  }
