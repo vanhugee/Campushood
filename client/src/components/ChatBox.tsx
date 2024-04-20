@@ -21,7 +21,6 @@ export function ChatBox({ user, timeDiff, postId, initialTitle, initialBody, rep
     const [isEditing, setIsEditing] = useState(false);
     const [editedTitle, setEditedTitle] = useState(initialTitle);
     const [editedBody, setEditedBody] = useState(initialBody);
-    /*const [editedFilter, setEditedFilter] = useState(initialFilter);*/
     const [isHidden, setIsHidden] = useState(false);
     const [replies, setReplies] = useState(''); // State for replies
     const [isEditingReplies, setIsEditingReplies] = useState(false);
@@ -30,15 +29,23 @@ export function ChatBox({ user, timeDiff, postId, initialTitle, initialBody, rep
     };
     const handleEditTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setEditedTitle(e.target.value);
+        console.log("Title changed to: " + e.target.value);
     };
     const handleEditBodyChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setEditedBody(e.target.value);
+        console.log("Body changed to: " + e.target.value);
     };
-    /*const handleEditFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setEditedFilter(e.target.value);
-    };*/
     const handleEditComplete = () => {
         setIsEditing(false);
+        axios.put('http://localhost:8080/post/update', {
+            postId: postId,
+            title: editedTitle,
+            content: editedBody
+        }).then(function (response) {
+            console.log(response);
+        }).catch(function (error) {
+            console.log(error);
+        })
     };
     const handleDeleteClick = () => {
         setIsHidden(true);
@@ -71,12 +78,14 @@ export function ChatBox({ user, timeDiff, postId, initialTitle, initialBody, rep
         <div className={`chatBoxStyle`}>
             <div className='headerStyle'>
                 {isEditing ? (
-                    <input
+                    <div>
+                        <input
                         type="text"
                         value={editedTitle}
                         onChange={handleEditTitleChange}
-                        onBlur={handleEditComplete}
-                    />
+                        />
+                        <button onClick={handleEditComplete}>Done</button>
+                    </div>
                 ) : (
                     <h3>{initialTitle}</h3>
                 )}
@@ -86,7 +95,6 @@ export function ChatBox({ user, timeDiff, postId, initialTitle, initialBody, rep
                     type="text"
                     value={editedBody}
                     onChange={handleEditBodyChange}
-                    onBlur={handleEditComplete}
                 />
             ) : (
                 <p>{initialBody}</p>

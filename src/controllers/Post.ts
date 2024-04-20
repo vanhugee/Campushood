@@ -88,15 +88,14 @@ const getPostReplies = async (req: Request, res: Response) => {
 // Update a post
 const updatePost = async (req: Request, res: Response) => {
     try {
-        const {postId, title, content, tag} = req.body;
+        const {postId, title, content} = req.body;
         const updatedPost = await prisma.post.update({
             where: {
                 id: postId
             },
             data: {
                 title: title,
-                content: content,
-                tags: tag
+                content: content
             }
         });
         res.status(201).json({message: "Post updated successfully", data: updatedPost});

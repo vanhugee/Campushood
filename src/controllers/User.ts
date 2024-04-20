@@ -49,7 +49,7 @@ const getUser = async (req: Request, res: Response) => {
   }
 }
 
-// get all users
+// Get all users
 const getAllUsers = async (req: Request, res: Response) => {
   try {
     const users = await prisma.user.findMany({
