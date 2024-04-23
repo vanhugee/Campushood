@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/PostButton.css'; // Import the CSS file for the button styling
 
 
@@ -11,9 +12,14 @@ interface PostButtonProps {
 }
 
 export function PostButton({ onPost, userInfo }: PostButtonProps) {
+    const navigate = useNavigate();
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
     const [filter, setFilter] = useState(''); // State to track selected filter
+    if (!sessionStorage.getItem('user')) {
+        navigate('/login');
+    }
+    const userData = JSON.parse(sessionStorage.getItem('user')!);
 
     const handleClick = () => {
         onPost(title, body, filter); // Call the onPost function with title, body, and filter
@@ -32,12 +38,12 @@ export function PostButton({ onPost, userInfo }: PostButtonProps) {
         axios.post('http://localhost:8080/post/create', {
             title: title,
             content: body,
-            userId: userInfo.uid,
+            userId: userData.uid,
             tag: tag
         }).then(function (response) {
             console.log(response);
             axios.put('http://localhost:8080/user/update', {
-                id: userInfo.uid,
+                id: userData.uid,
                 points: 5
             }).then(function (response) {
                 console.log(response);
