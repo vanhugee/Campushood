@@ -13,7 +13,7 @@ CampusHood was born out of the challenges faced by international students on U.S
 ## 💻 Technologies 
 - Frontend: React.js
 - Backend: Node.js, Express.js
-- Database: PostgreSQL
+- Database: Supabase, PostgreSQL
 - APIs: Firebase Auth API
 - Language: Typescript
 

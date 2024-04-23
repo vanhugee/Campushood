@@ -88,15 +88,14 @@ const getPostReplies = async (req: Request, res: Response) => {
 // Update a post
 const updatePost = async (req: Request, res: Response) => {
     try {
-        const {postId, title, content, tag} = req.body;
+        const {postId, title, content} = req.body;
         const updatedPost = await prisma.post.update({
             where: {
                 id: postId
             },
             data: {
                 title: title,
-                content: content,
-                tags: tag
+                content: content
             }
         });
         res.status(201).json({message: "Post updated successfully", data: updatedPost});
@@ -110,7 +109,36 @@ const updatePost = async (req: Request, res: Response) => {
     }
 }
 
+// Delete a post
+const deletePost = async (req: Request, res: Response) => {
+    try {
+        const postId = parseInt(req.query.postId as string);
+        console.log(postId);
+        console.log(typeof postId);
+        const deleteReplies = prisma.reply.deleteMany({
+            where: {
+              postId: postId,
+            },
+        })
+        const deletedPost = prisma.post.delete({
+            where: {
+                id: postId
+            }
+        });
+        const transaction = await prisma.$transaction([deleteReplies, deletedPost])
+        res.status(201).json({message: "Post deleted successfully", data: transaction});
+    } catch (error) {
+        if (error instanceof Error) {
+            res.status(400).json({ error: error.message });
+        } 
+        else {
+            res.status(400).json({ error: "An unknown error occurred" });
+        };
+    }
+}
+
 export { createPost, 
         getAllPosts,
         getPostReplies,
-        updatePost };
+        updatePost,
+        deletePost};
