@@ -2,9 +2,9 @@ import React from 'react';
 import { ChatBox } from './ChatBox'; // Assuming you have a ChatBox component
 import '../styles/ChatPage.css';
 import axios from 'axios';
-import { response } from 'express';
 import { useState, useEffect } from 'react';
-import { User, Reply, Post  } from '@prisma/client';
+import { User, Reply} from '@prisma/client';
+
 interface ChatPageProps {
     chatMessages: { title: string; body: string; filter: string }[]; // Define chatMessages prop
     userInfo: any;
@@ -21,12 +21,13 @@ interface PostData {
     user: User
     userId: string
 }
+
+
 export function ChatPage({ chatMessages, userInfo, postTag }: ChatPageProps) {
     const [fetchedMessages, setFetchedMessages] = useState<PostData[]>([]);
     const [timeArray, setTimeArray] = useState<string[]>([]);
     useEffect(() => {
         const fetchData = async () => {
-            console.log(postTag);
             await axios.get('http://localhost:8080/post/getAll',
                 {params: {
                     postTag: postTag
@@ -38,7 +39,7 @@ export function ChatPage({ chatMessages, userInfo, postTag }: ChatPageProps) {
                     console.log(error);
                 });
         };
-        fetchData();
+        setInterval(fetchData, 5000);
     }, [postTag]);
     return (
         <div className='chatContainerStyle'>

@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import Sidebar from '../components/Sidebar'
 import Navbar from '../components/Navbar'
 import { PostButton } from '../components/PostButton'
 import { ChatPage } from '../components/ChatPage'
 import Leaderboard from '../components/Leaderboard'
-import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 import '../styles/Home.css'
 import Grid from '@mui/material/Grid';
@@ -47,8 +46,7 @@ export function Home() {
                 <Grid item xs={12} md ={2.5}>
                     <Leaderboard />
                 </Grid>
-    
             </Grid>
-    
+
         );
     }

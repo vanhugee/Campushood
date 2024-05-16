@@ -19,9 +19,10 @@ export function PostButton({ onPost, userInfo }: PostButtonProps) {
     if (!sessionStorage.getItem('user')) {
         navigate('/login');
     }
-    const userData = JSON.parse(sessionStorage.getItem('user')!);
+    
 
     const handleClick = () => {
+        const userData = JSON.parse(sessionStorage.getItem('user')!);
         onPost(title, body, filter); // Call the onPost function with title, body, and filter
         setTitle(''); // Clear the title input after posting
         setBody(''); // Clear the body input after posting
